@@ -3,11 +3,12 @@
 /**
  * Preloader Prestige
  *
- * Timeline GSAP :
- *   1. Logo blanc apparaît (fade-in + légère montée, 1.0s)
- *   2. Halo doré pulse autour du logo (0.9s)
- *   3. Halo + logo disparaissent (0.5s)
- *   4. Écran noir entier remonte vers le haut (slide-up, 0.85s expo.inOut)
+ * Timeline GSAP (~1,4s au total — raccourcie suite à l'audit perf mobile,
+ * le Preloader étant l'élément de LCP dominant) :
+ *   1. Logo blanc apparaît (fade-in + légère montée)
+ *   2. Halo doré pulse autour du logo
+ *   3. Halo + logo disparaissent
+ *   4. Écran noir entier remonte vers le haut (slide-up, expo.inOut)
  *   5. onComplete() → site révélé
  */
 
@@ -36,32 +37,32 @@ export default function Preloader({ onComplete }: PreloaderProps) {
     tl.to(logoWrapRef.current, {
       opacity: 1,
       y: 0,
-      duration: 1.0,
+      duration: 0.35,
       ease: "power3.out",
-      delay: 0.25,
+      delay: 0.08,
     });
 
     // ── 2. Ligne or se déploie ────────────────────────────────────────────
     tl.to(lineRef.current, {
       scaleX: 1,
       opacity: 1,
-      duration: 0.9,
+      duration: 0.3,
       ease: "power2.out",
-    }, "-=0.4");
+    }, "-=0.15");
 
     // ── 3. Halo doré pulse ────────────────────────────────────────────────
     tl.to(glowRef.current, {
       opacity: 1,
       scale: 1,
-      duration: 0.85,
+      duration: 0.3,
       ease: "power2.out",
-    }, "-=0.5");
+    }, "-=0.2");
 
     // ── 4. Halo décroît ───────────────────────────────────────────────────
     tl.to(glowRef.current, {
       opacity: 0,
       scale: 1.15,
-      duration: 0.7,
+      duration: 0.25,
       ease: "power2.in",
     });
 
@@ -69,16 +70,16 @@ export default function Preloader({ onComplete }: PreloaderProps) {
     tl.to([logoWrapRef.current, lineRef.current], {
       opacity: 0,
       y: -8,
-      duration: 0.45,
+      duration: 0.18,
       ease: "power2.in",
-    }, "-=0.35");
+    }, "-=0.12");
 
     // ── 6. Écran noir remonte — révèle le site ───────────────────────────
     tl.to(containerRef.current, {
       y: "-100%",
-      duration: 0.88,
+      duration: 0.45,
       ease: "expo.inOut",
-    }, "+=0.05");
+    }, "+=0.02");
 
     // ── 7. Signal parent ──────────────────────────────────────────────────
     tl.call(onComplete);
