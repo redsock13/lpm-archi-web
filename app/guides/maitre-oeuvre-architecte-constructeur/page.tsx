@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "Maître d'Œuvre, Architecte ou Constructeur : Lequel Choisir ? | LPM",
@@ -23,6 +24,12 @@ export const metadata: Metadata = {
     siteName: "LPM — Maître d'Œuvre Haute-Garonne",
     locale: "fr_FR",
     type: "article",
+    images: [{ url: "/hero-bg-poster.jpg", width: 1280, height: 720, alt: "LPM — Maître d'œuvre Haute-Garonne" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Maître d'Œuvre, Architecte ou Constructeur : Lequel Choisir ? | LPM",
+    images: ["/hero-bg-poster.jpg"],
   },
 };
 
@@ -58,6 +65,13 @@ export default function ArticleChoixProfessionnel() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Accueil", path: "/" },
+          { name: "Guides", path: "/#conseils" },
+          { name: "Maître d'Œuvre, Architecte ou Constructeur", path: "/guides/maitre-oeuvre-architecte-constructeur" },
+        ]}
       />
       <main className="bg-[#080808] text-[#F5F0E8] min-h-screen">
         {/* Hero article */}

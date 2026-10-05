@@ -30,8 +30,6 @@ const dancing = Dancing_Script({
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
   viewportFit: "cover", // dynamic island / notch iPhone
 };
 
@@ -54,8 +52,25 @@ export const metadata: Metadata = {
     title: "LPM Maître d'Œuvre Haute-Garonne | Maisons Sur-Mesure",
     description:
       "Construction de maison sur mesure en Haute-Garonne. Maîtrise d'œuvre complète, norme RE2020, artisans qualifiés. Devis gratuit.",
+    url: "https://lpmoe.com",
+    siteName: "LPM — Maître d'Œuvre Haute-Garonne",
     locale: "fr_FR",
     type: "website",
+    images: [
+      {
+        url: "/hero-bg-poster.jpg",
+        width: 1280,
+        height: 720,
+        alt: "LPM — Maître d'œuvre, construction de maison individuelle sur-mesure",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "LPM Maître d'Œuvre Haute-Garonne | Maisons Sur-Mesure",
+    description:
+      "Construction de maison sur mesure en Haute-Garonne. Maîtrise d'œuvre complète, norme RE2020, artisans qualifiés.",
+    images: ["/hero-bg-poster.jpg"],
   },
 };
 
@@ -76,8 +91,10 @@ export default function RootLayout({
               "name": "LPM",
               "description": "Maître d'œuvre spécialisé en construction de maisons individuelles sur mesure en Haute-Garonne et Tarn-et-Garonne.",
               "url": "https://lpmoe.com",
+              "image": "https://lpmoe.com/lpm-logo.png",
               "telephone": "+33782922112",
               "email": "contact@lpmoe.com",
+              "founder": { "@type": "Person", "name": "Loïc Petit" },
               "areaServed": [
                 { "@type": "AdministrativeArea", "name": "Haute-Garonne" },
                 { "@type": "AdministrativeArea", "name": "Tarn-et-Garonne" },
@@ -91,6 +108,8 @@ export default function RootLayout({
               "knowsAbout": ["RE2020", "Maîtrise d'œuvre", "Construction maison neuve"],
               "address": {
                 "@type": "PostalAddress",
+                "addressLocality": "Grenade",
+                "postalCode": "31330",
                 "addressRegion": "Haute-Garonne",
                 "addressCountry": "FR",
               },

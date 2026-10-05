@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "RE2020 Construction Maison 2026 | Guide Pratique LPM Haute-Garonne",
@@ -24,6 +25,12 @@ export const metadata: Metadata = {
     siteName: "LPM — Maître d'Œuvre Haute-Garonne",
     locale: "fr_FR",
     type: "article",
+    images: [{ url: "/hero-bg-poster.jpg", width: 1280, height: 720, alt: "LPM — Maître d'œuvre Haute-Garonne" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "RE2020 Construction Maison 2026 | Guide Pratique LPM Haute-Garonne",
+    images: ["/hero-bg-poster.jpg"],
   },
 };
 
@@ -58,6 +65,13 @@ export default function ArticleRE2020() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Accueil", path: "/" },
+          { name: "Guides", path: "/#conseils" },
+          { name: "Norme RE2020 Construction Maison", path: "/guides/norme-re2020-construction-maison" },
+        ]}
       />
       <main className="bg-[#080808] text-[#F5F0E8] min-h-screen">
         {/* Hero article */}

@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { permanentRedirect } from "next/navigation";
 
 export default function RedirectPrix() {
-  redirect("/guides/maitre-oeuvre-architecte-constructeur");
+  permanentRedirect("/guides/maitre-oeuvre-architecte-constructeur");
 }

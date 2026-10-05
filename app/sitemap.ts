@@ -13,8 +13,10 @@ const projects = [
   "saint-cezert-2",
 ];
 
+// "prix-construction-maison-haute-garonne-2026" est volontairement exclu :
+// cette URL redirige (308) vers maitre-oeuvre-architecte-constructeur, un
+// sitemap ne doit lister que des URLs finales et indexables.
 const guides = [
-  "prix-construction-maison-haute-garonne-2026",
   "etapes-construction-maison-individuelle",
   "maitre-oeuvre-architecte-constructeur",
   "norme-re2020-construction-maison",
