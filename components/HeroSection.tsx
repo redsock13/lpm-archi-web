@@ -67,6 +67,22 @@ export default function HeroSection({ isReady }: Props) {
           </motion.p>
         )}
 
+        {/* Positionnement + zone d'intervention — lisible dès le premier écran mobile */}
+        {isReady && (
+          <motion.p
+            {...fadeUp(0.42)}
+            className="mb-5 md:mb-7 text-[#F5F0E8]/75 uppercase"
+            style={{
+              fontFamily: "var(--font-sora), system-ui, sans-serif",
+              fontSize: "clamp(0.6rem, 1.15vw, 0.78rem)",
+              letterSpacing: "0.18em",
+              fontWeight: 400,
+            }}
+          >
+            Construction Haut de Gamme · Haute-Garonne &amp; Tarn-et-Garonne
+          </motion.p>
+        )}
+
         {/* Phrase monumentale — visuelle uniquement (aria-hidden) */}
         {isReady && (
           <motion.div
@@ -124,16 +140,16 @@ export default function HeroSection({ isReady }: Props) {
             className="flex flex-col sm:flex-row gap-3 items-center pointer-events-auto"
           >
             <a
-              href="#expertise"
+              href="#contact"
               className="px-9 py-3.5 bg-[#D4AF37] text-[#050505]
                          text-[9px] tracking-[0.35em] uppercase font-semibold
                          hover:bg-[#E8C97A] transition-colors duration-300 cursor-none"
             >
-              Découvrir LPM
+              Parlons de votre projet
             </a>
             <a
               href="#portfolio"
-              className="px-9 py-3.5 border border-white/25 text-white/65
+              className="px-9 py-3.5 border border-white/35 text-white/80
                          text-[9px] tracking-[0.35em] uppercase font-light
                          hover:border-[#D4AF37]/60 hover:text-[#D4AF37]
                          transition-colors duration-300 cursor-none"

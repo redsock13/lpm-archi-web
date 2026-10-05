@@ -12,6 +12,17 @@ export default function GrainOverlay() {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Le repaint plein écran en continu (mix-blend-overlay, ~20fps, en boucle
+    // infinie) pèse sur le thread principal des mobiles d'entrée de gamme —
+    // on le désactive sur mobile et en cas de préférence "reduced motion"
+    // (cf. audit perf mobile : TBT élevé).
+    if (
+      window.matchMedia("(max-width: 767px)").matches ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      return;
+    }
+
     let frame = 0;
     const tick = () => {
       frame++;

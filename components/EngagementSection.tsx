@@ -17,7 +17,7 @@ const paragraphs: Para[] = [
     { text: "LPM prend en charge votre réalisation " },
     { text: "du début à la fin", bold: true },
     { text: " avec des coûts " },
-    { text: "maîtrisés et bas", bold: true, gold: true },
+    { text: "maîtrisés", bold: true, gold: true },
     { text: ", tout en garantissant une qualité irréprochable — plain-pied ou à étage, traditionnelle ou contemporaine. Toutes nos réalisations respectent la norme " },
     { text: "RE2020", bold: true, gold: true },
     { text: "." },
