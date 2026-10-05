@@ -129,7 +129,7 @@ export default function SaintCezert2Page() {
       </section>
 
       {/* ── Galerie ──────────────────────────────────────────────────────── */}
-      <ProjectGallery project="saint-cezert-2" compact />
+      <ProjectGallery project="saint-cezert-2" cityLabel="Saint-Cézert — Parcelle 238" compact />
 
       {/* ── Key figures ──────────────────────────────────────────────────── */}
       <div ref={statsRef} className="border-y border-[#1c1c1c] py-10 px-6 md:px-16">

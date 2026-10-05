@@ -88,7 +88,7 @@ export default function AgenPage() {
       </section>
 
       {/* ── Galerie 3D ──────────────────────────────────────────────────── */}
-      <ProjectGallery project="agen" compact />
+      <ProjectGallery project="agen" cityLabel="Agen" compact />
 
       {/* ── Fiche projet ────────────────────────────────────────────────── */}
       <section className="max-w-5xl mx-auto px-6 md:px-16 py-20 grid md:grid-cols-2 gap-16">

@@ -6,6 +6,8 @@ import gsap from "gsap";
 
 interface Props {
   project: string;
+  /** Nom de ville lisible pour les attributs alt (ex. "Grenade-sur-Garonne") */
+  cityLabel?: string;
   /** Place gallery right after hero: less top padding + earlier scroll trigger */
   compact?: boolean;
 }
@@ -39,7 +41,8 @@ function getTransforms(offset: number, step: number) {
 
 // ─────────────────────────────────────────────────────────────────────────────
 
-export default function ProjectGallery({ project, compact = false }: Props) {
+export default function ProjectGallery({ project, cityLabel, compact = false }: Props) {
+  const label = cityLabel ?? project;
   const [images, setImages]   = useState<string[]>([]);
   const [active, setActive]   = useState(0);
   const [lightbox, setLightbox] = useState<number | null>(null);
@@ -290,7 +293,7 @@ export default function ProjectGallery({ project, compact = false }: Props) {
               >
                 <Image
                   src={src}
-                  alt={`Photo chantier ${i + 1}`}
+                  alt={`Chantier maison individuelle LPM — ${label}, photo ${i + 1}/${images.length}`}
                   fill
                   sizes="(max-width: 768px) 52vw, 380px"
                   quality={75}
@@ -373,7 +376,7 @@ export default function ProjectGallery({ project, compact = false }: Props) {
           >
             <Image
               src={images[lightbox]}
-              alt={`Photo ${lightbox + 1}`}
+              alt={`Chantier maison individuelle LPM — ${label}, photo ${lightbox + 1}/${images.length}`}
               width={1600}
               height={1200}
               quality={90}

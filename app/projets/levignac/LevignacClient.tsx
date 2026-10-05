@@ -147,7 +147,7 @@ export default function LevignacPage() {
       </section>
 
       {/* ── Galerie 3D ──────────────────────────────────────────────────── */}
-      <ProjectGallery project="levignac" compact />
+      <ProjectGallery project="levignac" cityLabel="Lévignac" compact />
 
       {/* ── Key figures ─────────────────────────────────────────────────── */}
       <div ref={statsRef} className="border-y border-[#1c1c1c] py-10 px-6 md:px-16">

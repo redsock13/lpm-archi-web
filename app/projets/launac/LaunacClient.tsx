@@ -138,7 +138,7 @@ export default function LaunacPage() {
       </section>
 
       {/* ── Galerie 3D ──────────────────────────────────────────────────── */}
-      <ProjectGallery project="launac" compact />
+      <ProjectGallery project="launac" cityLabel="Launac" compact />
 
       {/* ── Key figures ─────────────────────────────────────────────────── */}
       <div ref={statsRef} className="border-y border-[#1c1c1c] py-10 px-6 md:px-16">

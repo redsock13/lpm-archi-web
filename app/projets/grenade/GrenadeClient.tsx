@@ -135,7 +135,7 @@ export default function GrenadePage() {
       </section>
 
       {/* ── Galerie 3D ──────────────────────────────────────────────────── */}
-      <ProjectGallery project="grenade" compact />
+      <ProjectGallery project="grenade" cityLabel="Grenade-sur-Garonne" compact />
 
       {/* ── Key figures ─────────────────────────────────────────────────── */}
       <div ref={statsRef} className="border-y border-[#1c1c1c] py-10 px-6 md:px-16">

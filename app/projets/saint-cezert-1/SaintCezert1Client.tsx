@@ -126,7 +126,7 @@ export default function SaintCezert1Page() {
       </section>
 
       {/* ── Galerie ──────────────────────────────────────────────────────── */}
-      <ProjectGallery project="saint-cezert-1" compact />
+      <ProjectGallery project="saint-cezert-1" cityLabel="Saint-Cézert — Chemin d'Empiroulet" compact />
 
       {/* ── Key figures ──────────────────────────────────────────────────── */}
       <div ref={statsRef} className="border-y border-[#1c1c1c] py-10 px-6 md:px-16">

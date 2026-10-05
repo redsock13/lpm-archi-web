@@ -146,7 +146,7 @@ export default function FrontonPage() {
       </section>
 
       {/* ── Galerie 3D ──────────────────────────────────────────────────── */}
-      <ProjectGallery project="fronton" compact />
+      <ProjectGallery project="fronton" cityLabel="Fronton" compact />
 
       {/* ── Key figures ─────────────────────────────────────────────────── */}
       <div ref={statsRef} className="border-y border-[#1c1c1c] py-10 px-6 md:px-16">
