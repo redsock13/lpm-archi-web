@@ -115,7 +115,9 @@ export default function SaintCezert1Page() {
             className="font-bold leading-none tracking-tight"
             style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(3rem, 9vw, 7rem)" }}
           >
+            <span className="sr-only">Construction Maison Individuelle à </span>
             Saint-Cézert
+            <span className="sr-only">, Haute-Garonne</span>
           </h1>
           <p className="text-[#8A8A8A] text-sm font-light mt-2 tracking-wide">
             Chemin d'Empiroulet — Haute-Garonne
@@ -172,6 +174,27 @@ export default function SaintCezert1Page() {
             <li><span className="text-[#8A8A8A]">Construction</span> — type traditionnel</li>
           </ul>
         </div>
+      </section>
+
+      {/* ── Construction maison individuelle — texte SEO ─────────────────── */}
+      <section className="max-w-5xl mx-auto px-6 md:px-16 pb-20">
+        <h2
+          className="text-2xl md:text-3xl font-bold mb-6 leading-tight"
+          style={{ fontFamily: "var(--font-playfair)" }}
+        >
+          Construction maison individuelle à{" "}
+          <span className="italic font-normal text-[#D4AF37]">Saint-Cézert</span>
+        </h2>
+        <p className="text-[#F5F0E8]/70 text-sm font-light leading-[1.9] max-w-3xl">
+          Chemin d&apos;Empiroulet, à Saint-Cézert — à une quinzaine de
+          kilomètres au nord de Toulouse — LPM a assuré la construction de
+          cette maison individuelle de plain-pied de 92,76 m² habitables, de
+          construction traditionnelle, sur une parcelle de 1 250 m². De la
+          conception des plans au suivi de chantier, LPM a accompagné ce
+          projet de construction de maison individuelle en Haute-Garonne
+          jusqu&apos;à la réception des travaux, avec un espace de
+          stationnement extérieur de 250 m² en gravier.
+        </p>
       </section>
 
       {/* ── Room list ────────────────────────────────────────────────────── */}

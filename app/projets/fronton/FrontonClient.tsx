@@ -135,7 +135,9 @@ export default function FrontonPage() {
             className="font-bold leading-none tracking-tight"
             style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(3rem, 9vw, 7rem)" }}
           >
+            <span className="sr-only">Construction Maison Individuelle à </span>
             Fronton
+            <span className="sr-only">, Haute-Garonne</span>
           </h1>
           <p className="text-[#8A8A8A] text-sm font-light mt-2 tracking-wide">
             Haute-Garonne — 31620
@@ -196,6 +198,28 @@ export default function FrontonPage() {
             <li><span className="text-[#8A8A8A]">Arbres</span> — 3 nouveaux plantés, aucun abattu</li>
           </ul>
         </div>
+      </section>
+
+      {/* ── Construction maison individuelle — texte SEO ─────────────────── */}
+      <section className="max-w-5xl mx-auto px-6 md:px-16 pb-20">
+        <h2
+          className="text-2xl md:text-3xl font-bold mb-6 leading-tight"
+          style={{ fontFamily: "var(--font-playfair)" }}
+        >
+          Construction maison individuelle à{" "}
+          <span className="italic font-normal text-[#D4AF37]">Fronton</span>
+        </h2>
+        <p className="text-[#F5F0E8]/70 text-sm font-light leading-[1.9] max-w-3xl">
+          Sur la commune de Fronton (31620), chemin du Moulin, LPM a piloté la
+          construction de cette maison individuelle à étage (R+1) de 130,58 m²
+          habitables, sur un terrain viabilisé de 723 m². Le programme intègre
+          un garage de 44,89 m², une terrasse de plain-pied de 42 m² et une
+          microstation d&apos;épuration individuelle. De la conception des
+          plans au dépôt du permis de construire, puis à la coordination des
+          artisans jusqu&apos;à la réception des travaux, LPM a assuré la
+          maîtrise d&apos;œuvre de bout en bout pour cette construction de
+          maison individuelle en Haute-Garonne.
+        </p>
       </section>
 
       {/* ── Room list ───────────────────────────────────────────────────── */}

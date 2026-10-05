@@ -118,7 +118,9 @@ export default function SaintCezert2Page() {
             className="font-bold leading-none tracking-tight"
             style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(3rem, 9vw, 7rem)" }}
           >
+            <span className="sr-only">Construction Maison Individuelle à </span>
             Saint-Cézert
+            <span className="sr-only">, Haute-Garonne</span>
           </h1>
           <p className="text-[#8A8A8A] text-sm font-light mt-2 tracking-wide">
             Parcelle 238 — Haute-Garonne
@@ -176,6 +178,27 @@ export default function SaintCezert2Page() {
             <li><span className="text-[#8A8A8A]">Construction</span> — type traditionnel</li>
           </ul>
         </div>
+      </section>
+
+      {/* ── Construction maison individuelle — texte SEO ─────────────────── */}
+      <section className="max-w-5xl mx-auto px-6 md:px-16 pb-20">
+        <h2
+          className="text-2xl md:text-3xl font-bold mb-6 leading-tight"
+          style={{ fontFamily: "var(--font-playfair)" }}
+        >
+          Construction maison individuelle à{" "}
+          <span className="italic font-normal text-[#D4AF37]">Saint-Cézert</span>
+        </h2>
+        <p className="text-[#F5F0E8]/70 text-sm font-light leading-[1.9] max-w-3xl">
+          Sur la parcelle n°238 de 1 221 m², à Saint-Cézert, LPM a mené la
+          construction de cette maison individuelle de plain-pied de 118,62 m²
+          habitables, avec ses quatre chambres, un garage de 16,78 m² et une
+          terrasse de 22,50 m². Second projet livré par LPM sur la commune de
+          Saint-Cézert, cette construction de maison individuelle en
+          Haute-Garonne bénéficie d&apos;un cadre naturel préservé, à une
+          quinzaine de kilomètres au nord de Toulouse. LPM a assuré la
+          maîtrise d&apos;œuvre complète, de la conception à la livraison.
+        </p>
       </section>
 
       {/* ── Room list ────────────────────────────────────────────────────── */}

@@ -77,7 +77,9 @@ export default function AgenPage() {
               fontSize: "clamp(3rem, 9vw, 7rem)",
             }}
           >
+            <span className="sr-only">Construction Maison Individuelle à </span>
             Agen
+            <span className="sr-only">, Lot-et-Garonne</span>
           </h1>
           <p className="text-[#8A8A8A] text-sm font-light mt-2 tracking-wide">
             Lot-et-Garonne — 47000
@@ -113,6 +115,29 @@ export default function AgenPage() {
             <li><span className="text-[#8A8A8A]">Réception</span> — Levée des réserves</li>
           </ul>
         </div>
+      </section>
+
+      {/* ── Construction maison individuelle — texte SEO ─────────────────── */}
+      <section className="max-w-5xl mx-auto px-6 md:px-16 pb-20">
+        <h2
+          className="text-2xl md:text-3xl font-bold mb-6 leading-tight"
+          style={{ fontFamily: "var(--font-playfair)" }}
+        >
+          Construction maison individuelle à{" "}
+          <span className="italic font-normal text-[#D4AF37]">Agen</span>
+        </h2>
+        <p className="text-[#F5F0E8]/70 text-sm font-light leading-[1.9] max-w-3xl">
+          La construction de cette maison individuelle à Agen (Lot-et-Garonne)
+          illustre l&apos;accompagnement complet proposé par LPM, maître
+          d&apos;œuvre : de la conception des plans jusqu&apos;au suivi du
+          chantier. Sur la commune d&apos;Agen, LPM a pris en charge
+          l&apos;intégralité du projet — esquisse, dépôt du permis de
+          construire, coordination des artisans et réception des travaux —
+          pour livrer une maison individuelle pensée sur-mesure, en cohérence
+          avec le terrain et les attentes des futurs propriétaires. Comme sur
+          l&apos;ensemble de ses chantiers, LPM reste l&apos;interlocuteur
+          unique du client, du premier plan jusqu&apos;à la remise des clés.
+        </p>
       </section>
 
       {/* ── Footer CTA ──────────────────────────────────────────────────── */}

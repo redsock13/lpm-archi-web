@@ -3,14 +3,14 @@ import BouillacClient from "./BouillacClient";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
-  title: "Maison individuelle à Bouillac (82) | Réalisation LPM Maître d'Œuvre",
+  title: "Construction Maison Individuelle à Bouillac (82) | LPM Maître d'Œuvre",
   description:
-    "Réalisation LPM à Bouillac, dans le Tarn-et-Garonne (82600) : maison individuelle sur-mesure, de la conception à la réception des travaux.",
+    "Construction de maison individuelle à Bouillac (Tarn-et-Garonne) : démolition, conception, permis et suivi de chantier assurés de bout en bout par LPM.",
   alternates: { canonical: "/projets/bouillac" },
   openGraph: {
-    title: "Maison individuelle à Bouillac (82) | Réalisation LPM Maître d'Œuvre",
+    title: "Construction Maison Individuelle à Bouillac (82) | LPM Maître d'Œuvre",
     description:
-      "Réalisation LPM à Bouillac, dans le Tarn-et-Garonne : maison individuelle sur-mesure pilotée de bout en bout.",
+      "Construction de maison individuelle à Bouillac, dans le Tarn-et-Garonne : pilotée de bout en bout par LPM.",
     url: "https://lpmoe.com/projets/bouillac",
     siteName: "LPM — Maître d'Œuvre Haute-Garonne",
     locale: "fr_FR",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Maison individuelle à Bouillac (82) | Réalisation LPM Maître d'Œuvre",
+    title: "Construction Maison Individuelle à Bouillac (82) | LPM Maître d'Œuvre",
     images: ["/projets/bouillac/couverture.jpg"],
   },
 };

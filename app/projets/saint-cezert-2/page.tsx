@@ -3,14 +3,14 @@ import SaintCezert2Client from "./SaintCezert2Client";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
-  title: "Maison individuelle à Saint-Cézert (31) — Parcelle 238 | Réalisation LPM",
+  title: "Construction Maison Individuelle à Saint-Cézert (31) — Parcelle 238 | LPM",
   description:
-    "Seconde réalisation LPM à Saint-Cézert, en Haute-Garonne : maison individuelle sur-mesure, parcelle 238, pilotée de la conception à la livraison.",
+    "Construction de maison individuelle à Saint-Cézert (Haute-Garonne), parcelle 238 : de la conception à la livraison, par LPM maître d'œuvre.",
   alternates: { canonical: "/projets/saint-cezert-2" },
   openGraph: {
-    title: "Maison individuelle à Saint-Cézert (31) — Parcelle 238 | Réalisation LPM",
+    title: "Construction Maison Individuelle à Saint-Cézert (31) — Parcelle 238 | LPM",
     description:
-      "Réalisation LPM à Saint-Cézert, en Haute-Garonne : maison individuelle sur-mesure pilotée de bout en bout.",
+      "Construction de maison individuelle à Saint-Cézert, en Haute-Garonne : pilotée de bout en bout par LPM.",
     url: "https://lpmoe.com/projets/saint-cezert-2",
     siteName: "LPM — Maître d'Œuvre Haute-Garonne",
     locale: "fr_FR",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Maison individuelle à Saint-Cézert (31) — Parcelle 238 | Réalisation LPM",
+    title: "Construction Maison Individuelle à Saint-Cézert (31) — Parcelle 238 | LPM",
     images: ["/projets/Saint Cezert 2/couverture.jpg"],
   },
 };

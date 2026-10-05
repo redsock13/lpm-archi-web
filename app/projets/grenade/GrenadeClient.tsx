@@ -124,7 +124,9 @@ export default function GrenadePage() {
             className="font-bold leading-none tracking-tight"
             style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(3rem, 9vw, 7rem)" }}
           >
+            <span className="sr-only">Construction Maison Individuelle à </span>
             Grenade
+            <span className="sr-only">-sur-Garonne, Haute-Garonne</span>
           </h1>
           <p className="text-[#8A8A8A] text-sm font-light mt-2 tracking-wide">
             Grenade-sur-Garonne — Haute-Garonne
@@ -184,6 +186,29 @@ export default function GrenadePage() {
             <li><span className="text-[#8A8A8A]">Construction</span> — type traditionnel</li>
           </ul>
         </div>
+      </section>
+
+      {/* ── Construction maison individuelle — texte SEO ─────────────────── */}
+      <section className="max-w-5xl mx-auto px-6 md:px-16 pb-20">
+        <h2
+          className="text-2xl md:text-3xl font-bold mb-6 leading-tight"
+          style={{ fontFamily: "var(--font-playfair)" }}
+        >
+          Construction maison individuelle à{" "}
+          <span className="italic font-normal text-[#D4AF37]">Grenade-sur-Garonne</span>
+        </h2>
+        <p className="text-[#F5F0E8]/70 text-sm font-light leading-[1.9] max-w-3xl">
+          Rue des Églantiers, sur la commune de Grenade-sur-Garonne au nord de
+          Toulouse, LPM a conduit la construction de cette maison individuelle
+          de plain-pied de 91,41 m² habitables, avec garage accolé et
+          terrasse. Implantée sur une parcelle de 442 m² (lot n°1 du
+          lotissement), la maison a été pensée pour optimiser l&apos;emprise
+          au sol tout en préservant un espace vert généreux. LPM est intervenu
+          de la conception à la réception des travaux, un accompagnement
+          caractéristique des projets de construction de maison individuelle
+          que LPM mène à Grenade-sur-Garonne et dans les communes voisines de
+          Haute-Garonne.
+        </p>
       </section>
 
       {/* ── Room list ───────────────────────────────────────────────────── */}

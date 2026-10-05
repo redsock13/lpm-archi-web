@@ -127,7 +127,9 @@ export default function LaunacPage() {
             className="font-bold leading-none tracking-tight"
             style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(3rem, 9vw, 7rem)" }}
           >
+            <span className="sr-only">Construction Maison Individuelle à </span>
             Launac
+            <span className="sr-only">, Haute-Garonne</span>
           </h1>
           <p className="text-[#8A8A8A] text-sm font-light mt-2 tracking-wide">
             Haute-Garonne — 31330
@@ -184,6 +186,28 @@ export default function LaunacPage() {
             <li><span className="text-[#8A8A8A]">Arbres</span> — 3 nouveaux plantés, aucun abattu</li>
           </ul>
         </div>
+      </section>
+
+      {/* ── Construction maison individuelle — texte SEO ─────────────────── */}
+      <section className="max-w-5xl mx-auto px-6 md:px-16 pb-20">
+        <h2
+          className="text-2xl md:text-3xl font-bold mb-6 leading-tight"
+          style={{ fontFamily: "var(--font-playfair)" }}
+        >
+          Construction maison individuelle à{" "}
+          <span className="italic font-normal text-[#D4AF37]">Launac</span>
+        </h2>
+        <p className="text-[#F5F0E8]/70 text-sm font-light leading-[1.9] max-w-3xl">
+          Route Saint-Cézet, à Launac (Haute-Garonne), LPM a réalisé la
+          construction de cette maison individuelle de plain-pied de 107,34 m²
+          habitables sur une parcelle de 520 m², entièrement viabilisée. Le
+          programme a été conçu pour préserver les arbres existants du terrain
+          tout en limitant l&apos;emprise au sol à 25 % de la parcelle. Comme
+          pour chaque projet de construction de maison individuelle que LPM
+          mène en Haute-Garonne, la mission a couvert la conception, le dépôt
+          de permis de construire, le pilotage du chantier et la réception
+          des travaux.
+        </p>
       </section>
 
       {/* ── Room list ───────────────────────────────────────────────────── */}

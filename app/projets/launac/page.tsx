@@ -3,14 +3,14 @@ import LaunacClient from "./LaunacClient";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
-  title: "Maison individuelle à Launac (31) | Réalisation LPM Maître d'Œuvre",
+  title: "Construction Maison Individuelle à Launac (31) | LPM Maître d'Œuvre",
   description:
-    "Réalisation LPM à Launac, en Haute-Garonne (31330) : maison individuelle sur-mesure, de la conception à la livraison.",
+    "Construction de maison individuelle à Launac (Haute-Garonne, 31330) : de la conception à la livraison, par LPM maître d'œuvre.",
   alternates: { canonical: "/projets/launac" },
   openGraph: {
-    title: "Maison individuelle à Launac (31) | Réalisation LPM Maître d'Œuvre",
+    title: "Construction Maison Individuelle à Launac (31) | LPM Maître d'Œuvre",
     description:
-      "Réalisation LPM à Launac, en Haute-Garonne : maison individuelle sur-mesure pilotée de bout en bout.",
+      "Construction de maison individuelle à Launac, en Haute-Garonne : pilotée de bout en bout par LPM.",
     url: "https://lpmoe.com/projets/launac",
     siteName: "LPM — Maître d'Œuvre Haute-Garonne",
     locale: "fr_FR",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Maison individuelle à Launac (31) | Réalisation LPM Maître d'Œuvre",
+    title: "Construction Maison Individuelle à Launac (31) | LPM Maître d'Œuvre",
     images: ["/projets/launac/couverture.png"],
   },
 };

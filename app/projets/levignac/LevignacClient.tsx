@@ -136,7 +136,9 @@ export default function LevignacPage() {
             className="font-bold leading-none tracking-tight"
             style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(3rem, 9vw, 7rem)" }}
           >
+            <span className="sr-only">Construction Maison Individuelle à </span>
             Lévignac
+            <span className="sr-only">, Haute-Garonne</span>
           </h1>
           <p className="text-[#8A8A8A] text-sm font-light mt-2 tracking-wide">
             Haute-Garonne — Zone UD
@@ -212,6 +214,28 @@ export default function LevignacPage() {
             <li><span className="text-[#8A8A8A]">Arbres</span> — conservés côté nord et est, aucun abattu</li>
           </ul>
         </div>
+      </section>
+
+      {/* ── Construction maison individuelle — texte SEO ─────────────────── */}
+      <section className="max-w-5xl mx-auto px-6 md:px-16 pb-20">
+        <h2
+          className="text-2xl md:text-3xl font-bold mb-6 leading-tight"
+          style={{ fontFamily: "var(--font-playfair)" }}
+        >
+          Construction maison individuelle à{" "}
+          <span className="italic font-normal text-[#D4AF37]">Lévignac</span>
+        </h2>
+        <p className="text-[#F5F0E8]/70 text-sm font-light leading-[1.9] max-w-3xl">
+          À Lévignac, en zone UD, ce projet de construction de maison
+          individuelle réunit trois parcelles cadastrales pour une surface
+          totale de 1 848 m². LPM y a conçu et piloté la construction
+          d&apos;une maison de plain-pied de 140,97 m² habitables, avec garage
+          et terrasse, en conservant les arbres existants côté nord et est —
+          l&apos;espace vert représente 72 % de la parcelle. Cette réalisation
+          illustre l&apos;approche de LPM pour la construction de maison
+          individuelle en Haute-Garonne : un projet sur-mesure, pensé avec le
+          terrain plutôt que contre lui.
+        </p>
       </section>
 
       {/* ── Room list ───────────────────────────────────────────────────── */}

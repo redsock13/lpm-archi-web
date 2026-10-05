@@ -145,7 +145,9 @@ export default function BouillacPage() {
               fontSize: "clamp(3rem, 9vw, 7rem)",
             }}
           >
+            <span className="sr-only">Construction Maison Individuelle à </span>
             Bouillac
+            <span className="sr-only">, Tarn-et-Garonne</span>
           </h1>
           <p className="text-[#8A8A8A] text-sm font-light mt-2 tracking-wide">
             Tarn-et-Garonne — 82600
@@ -217,6 +219,29 @@ export default function BouillacPage() {
             </li>
           </ul>
         </div>
+      </section>
+
+      {/* ── Construction maison individuelle — texte SEO ─────────────────── */}
+      <section className="max-w-5xl mx-auto px-6 md:px-16 pb-20">
+        <h2
+          className="text-2xl md:text-3xl font-bold mb-6 leading-tight"
+          style={{ fontFamily: "var(--font-playfair)" }}
+        >
+          Construction maison individuelle à{" "}
+          <span className="italic font-normal text-[#D4AF37]">Bouillac</span>
+        </h2>
+        <p className="text-[#F5F0E8]/70 text-sm font-light leading-[1.9] max-w-3xl">
+          À Bouillac, en Tarn-et-Garonne, ce projet de construction de maison
+          individuelle a démarré par la démolition d&apos;un bâti existant
+          d&apos;environ 20 m², avant la construction d&apos;une maison de
+          plain-pied de 132,13 m² habitables sur une parcelle de 1 500 m².
+          LPM a assuré la maîtrise d&apos;œuvre complète : conception,
+          démolition, permis de construire et pilotage de chantier, jusqu&apos;à
+          la livraison d&apos;une maison associant garage attenant (36,14 m²)
+          et terrasse de plain-pied (40,40 m²). Un exemple représentatif des
+          constructions neuves que LPM pilote en Tarn-et-Garonne comme en
+          Haute-Garonne.
+        </p>
       </section>
 
       {/* ── Room list ───────────────────────────────────────────────────── */}

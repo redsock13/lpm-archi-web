@@ -127,7 +127,8 @@ export default function ArticleChoixProfessionnel() {
           <p className="text-[#C0B9AE] leading-[1.9] mb-6 text-lg">
             Faire construire sa maison implique de choisir le bon interlocuteur
             professionnel. En France, trois grandes catégories de professionnels
-            peuvent piloter un projet de construction individuelle : le{" "}
+            peuvent piloter un projet de construction de maison individuelle :
+            le{" "}
             <strong className="text-[#F5F0E8] font-semibold">
               constructeur de maisons individuelles (CMI)
             </strong>

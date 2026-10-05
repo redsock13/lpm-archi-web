@@ -3,14 +3,14 @@ import AgenClient from "./AgenClient";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
-  title: "Maison individuelle à Agen (47) | Réalisation LPM Maître d'Œuvre",
+  title: "Construction Maison Individuelle à Agen (47) | LPM Maître d'Œuvre",
   description:
-    "Découvrez cette maison individuelle construite à Agen, dans le Lot-et-Garonne (47000), par LPM : conception, permis de construire et suivi de chantier assurés de A à Z.",
+    "Construction de maison individuelle à Agen (Lot-et-Garonne) : conception, permis de construire et suivi de chantier assurés de A à Z par LPM, maître d'œuvre.",
   alternates: { canonical: "/projets/agen" },
   openGraph: {
-    title: "Maison individuelle à Agen (47) | Réalisation LPM Maître d'Œuvre",
+    title: "Construction Maison Individuelle à Agen (47) | LPM Maître d'Œuvre",
     description:
-      "Réalisation LPM à Agen, dans le Lot-et-Garonne : maison individuelle sur-mesure, de la conception au suivi de chantier.",
+      "Construction de maison individuelle à Agen, dans le Lot-et-Garonne : de la conception au suivi de chantier, par LPM.",
     url: "https://lpmoe.com/projets/agen",
     siteName: "LPM — Maître d'Œuvre Haute-Garonne",
     locale: "fr_FR",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Maison individuelle à Agen (47) | Réalisation LPM Maître d'Œuvre",
+    title: "Construction Maison Individuelle à Agen (47) | LPM Maître d'Œuvre",
     images: ["/projets/agen/couverture.jpg"],
   },
 };

@@ -3,14 +3,14 @@ import GrenadeClient from "./GrenadeClient";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
-  title: "Maison individuelle à Grenade-sur-Garonne (31) | Réalisation LPM Maître d'Œuvre",
+  title: "Construction Maison Individuelle à Grenade-sur-Garonne | LPM",
   description:
-    "Réalisation LPM à Grenade-sur-Garonne, au nord de Toulouse (Haute-Garonne) : maison individuelle sur-mesure, de la conception au suivi de chantier.",
+    "Construction de maison individuelle à Grenade-sur-Garonne (Haute-Garonne), au nord de Toulouse : de la conception au suivi de chantier, par LPM.",
   alternates: { canonical: "/projets/grenade" },
   openGraph: {
-    title: "Maison individuelle à Grenade-sur-Garonne (31) | Réalisation LPM Maître d'Œuvre",
+    title: "Construction Maison Individuelle à Grenade-sur-Garonne | LPM",
     description:
-      "Réalisation LPM à Grenade-sur-Garonne, en Haute-Garonne : maison individuelle sur-mesure pilotée de bout en bout.",
+      "Construction de maison individuelle à Grenade-sur-Garonne, en Haute-Garonne : pilotée de bout en bout par LPM.",
     url: "https://lpmoe.com/projets/grenade",
     siteName: "LPM — Maître d'Œuvre Haute-Garonne",
     locale: "fr_FR",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Maison individuelle à Grenade-sur-Garonne (31) | Réalisation LPM Maître d'Œuvre",
+    title: "Construction Maison Individuelle à Grenade-sur-Garonne | LPM",
     images: ["/projets/grenade/couverture.jpg"],
   },
 };

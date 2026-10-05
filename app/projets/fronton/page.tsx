@@ -3,14 +3,14 @@ import FrontonClient from "./FrontonClient";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
-  title: "Maison individuelle à Fronton (31) | Réalisation LPM Maître d'Œuvre",
+  title: "Construction Maison Individuelle à Fronton (31) | LPM Maître d'Œuvre",
   description:
-    "Réalisation LPM à Fronton, en Haute-Garonne (31620) : maison individuelle sur-mesure pilotée de la conception à la réception des travaux.",
+    "Construction de maison individuelle à Fronton (Haute-Garonne, 31620) : pilotée de la conception à la réception des travaux par LPM.",
   alternates: { canonical: "/projets/fronton" },
   openGraph: {
-    title: "Maison individuelle à Fronton (31) | Réalisation LPM Maître d'Œuvre",
+    title: "Construction Maison Individuelle à Fronton (31) | LPM Maître d'Œuvre",
     description:
-      "Réalisation LPM à Fronton, en Haute-Garonne : maison individuelle sur-mesure, de la conception au suivi de chantier.",
+      "Construction de maison individuelle à Fronton, en Haute-Garonne : de la conception au suivi de chantier.",
     url: "https://lpmoe.com/projets/fronton",
     siteName: "LPM — Maître d'Œuvre Haute-Garonne",
     locale: "fr_FR",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Maison individuelle à Fronton (31) | Réalisation LPM Maître d'Œuvre",
+    title: "Construction Maison Individuelle à Fronton (31) | LPM Maître d'Œuvre",
     images: ["/projets/fronton/couverture.jpg"],
   },
 };

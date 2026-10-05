@@ -3,14 +3,14 @@ import SaintCezert1Client from "./SaintCezert1Client";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
-  title: "Maison individuelle à Saint-Cézert (31) — Chemin d'Empiroulet | Réalisation LPM",
+  title: "Construction Maison Individuelle à Saint-Cézert (31) | LPM",
   description:
-    "Réalisation LPM à Saint-Cézert, à une quinzaine de kilomètres au nord de Toulouse (Haute-Garonne) : maison individuelle sur-mesure, chemin d'Empiroulet.",
+    "Construction de maison individuelle à Saint-Cézert (Haute-Garonne), chemin d'Empiroulet : de la conception au suivi de chantier, par LPM.",
   alternates: { canonical: "/projets/saint-cezert-1" },
   openGraph: {
-    title: "Maison individuelle à Saint-Cézert (31) — Chemin d'Empiroulet | Réalisation LPM",
+    title: "Construction Maison Individuelle à Saint-Cézert (31) | LPM",
     description:
-      "Réalisation LPM à Saint-Cézert, en Haute-Garonne : maison individuelle sur-mesure pilotée de bout en bout.",
+      "Construction de maison individuelle à Saint-Cézert, en Haute-Garonne : pilotée de bout en bout par LPM.",
     url: "https://lpmoe.com/projets/saint-cezert-1",
     siteName: "LPM — Maître d'Œuvre Haute-Garonne",
     locale: "fr_FR",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Maison individuelle à Saint-Cézert (31) — Chemin d'Empiroulet | Réalisation LPM",
+    title: "Construction Maison Individuelle à Saint-Cézert (31) | LPM",
     images: ["/projets/Saint Cezert 1/couverture.jpg"],
   },
 };
