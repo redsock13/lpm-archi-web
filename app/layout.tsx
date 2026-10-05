@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Sora, Playfair_Display, Dancing_Script } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import CustomCursor from "@/components/CustomCursor";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
@@ -123,6 +124,7 @@ export default function RootLayout({
         <CustomCursor />
         {children}
       </body>
+      <GoogleAnalytics gaId="G-BKB4VQ6BC8" />
     </html>
   );
 }
