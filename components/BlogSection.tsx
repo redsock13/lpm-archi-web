@@ -8,13 +8,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 const articles = [
   {
     number: "01",
-    category: "Budget & Coûts",
-    title: "Quel est le prix d'une construction de maison en Haute-Garonne en 2026 ?",
+    category: "Choisir son interlocuteur",
+    title: "Maître d'œuvre, architecte ou constructeur : lequel choisir ?",
     excerpt:
-      "Tarifs au m², coûts de raccordement, honoraires de maîtrise d'œuvre… Tout ce qu'il faut savoir pour budgéter sereinement votre projet de construction.",
+      "CMI, architecte DPLG ou maître d'œuvre : différences, missions et garanties de chaque professionnel pour faire le bon choix selon votre projet.",
     readTime: "8 min",
-    tag: "Construction · Prix · Haute-Garonne",
-    href: "/guides/prix-construction-maison-haute-garonne-2026",
+    tag: "Maîtrise d'œuvre · Architecte · Constructeur",
+    href: "/guides/maitre-oeuvre-architecte-constructeur",
   },
   {
     number: "02",
@@ -72,66 +72,87 @@ export default function BlogSection() {
       const pinned = pinnedRef.current;
       if (!track || !pinned) return;
 
-      const getScrollDist = () => track.scrollWidth - pinned.offsetWidth;
+      // Desktop (≥768px) : pin + scroll-jack cinématique avec snap.
+      // Mobile (<768px)  : scroll horizontal natif (.hs-pinned), le scroll
+      // vertical de la page n'est jamais intercepté (cf. audit ergonomie).
+      const mm = gsap.matchMedia();
 
-      // ── Film strip avec SNAP ─────────────────────────────────────────
-      const mainTween = gsap.to(track, {
-        x: () => -getScrollDist(),
-        ease: "none",
-        scrollTrigger: {
-          trigger: pinned,
-          pin: true,
-          start: "top top",
-          end: () => `+=${getScrollDist()}`,
-          scrub: 1.2,
-          snap: {
-            snapTo: 1 / (articles.length - 1),
-            duration: { min: 0.25, max: 0.5 },
-            ease: "power2.inOut",
-            delay: 0.05,
+      mm.add("(min-width: 768px)", () => {
+        const getScrollDist = () => track.scrollWidth - pinned.offsetWidth;
+
+        // ── Film strip avec SNAP ─────────────────────────────────────────
+        const mainTween = gsap.to(track, {
+          x: () => -getScrollDist(),
+          ease: "none",
+          scrollTrigger: {
+            trigger: pinned,
+            pin: true,
+            start: "top top",
+            end: () => `+=${getScrollDist()}`,
+            scrub: 1.2,
+            snap: {
+              snapTo: 1 / (articles.length - 1),
+              duration: { min: 0.25, max: 0.5 },
+              ease: "power2.inOut",
+              delay: 0.05,
+            },
+            pinSpacing: true,
+            invalidateOnRefresh: true,
+            anticipatePin: 1,
+            onUpdate: (self) => gsap.set(progressFill.current, { scaleX: self.progress }),
           },
-          pinSpacing: true,
-          invalidateOnRefresh: true,
-          anticipatePin: 1,
-          onUpdate: (self) => gsap.set(progressFill.current, { scaleX: self.progress }),
-        },
+        });
+
+        // ── Par carte : fade + glow or synchronisé ───────────────────────
+        cardRefs.current.forEach((card, idx) => {
+          if (!card) return;
+
+          gsap.fromTo(card,
+            { opacity: 0.06 },
+            { opacity: 1, ease: "power2.out",
+              scrollTrigger: { trigger: card, containerAnimation: mainTween,
+                start: "left 95%", end: "left 35%", scrub: true } }
+          );
+          gsap.fromTo(card,
+            { opacity: 1 },
+            { opacity: 0.07, ease: "power2.in",
+              scrollTrigger: { trigger: card, containerAnimation: mainTween,
+                start: "right 52%", end: "right -5%", scrub: true } }
+          );
+
+          const numEl = numberRefs.current[idx];
+          if (numEl) {
+            gsap.fromTo(numEl,
+              { filter: "drop-shadow(0 0 0px rgba(212,175,55,0))" },
+              { filter: "drop-shadow(0 0 28px rgba(247,239,138,0.95)) drop-shadow(0 0 60px rgba(212,175,55,0.6))",
+                ease: "power2.out",
+                scrollTrigger: { trigger: card, containerAnimation: mainTween,
+                  start: "left 65%", end: "left 20%", scrub: true } }
+            );
+            gsap.fromTo(numEl,
+              { filter: "drop-shadow(0 0 28px rgba(247,239,138,0.95)) drop-shadow(0 0 60px rgba(212,175,55,0.6))" },
+              { filter: "drop-shadow(0 0 0px rgba(212,175,55,0))",
+                ease: "power2.in",
+                scrollTrigger: { trigger: card, containerAnimation: mainTween,
+                  start: "right 65%", end: "right 20%", scrub: true } }
+            );
+          }
+        });
       });
 
-      // ── Par carte : fade + glow or synchronisé ───────────────────────
-      cardRefs.current.forEach((card, idx) => {
-        if (!card) return;
+      mm.add("(max-width: 767px)", () => {
+        gsap.set(cardRefs.current, { opacity: 1 });
+        gsap.set(numberRefs.current, {
+          filter: "drop-shadow(0 0 28px rgba(247,239,138,0.95)) drop-shadow(0 0 60px rgba(212,175,55,0.6))",
+        });
 
-        gsap.fromTo(card,
-          { opacity: 0.06 },
-          { opacity: 1, ease: "power2.out",
-            scrollTrigger: { trigger: card, containerAnimation: mainTween,
-              start: "left 95%", end: "left 35%", scrub: true } }
-        );
-        gsap.fromTo(card,
-          { opacity: 1 },
-          { opacity: 0.07, ease: "power2.in",
-            scrollTrigger: { trigger: card, containerAnimation: mainTween,
-              start: "right 52%", end: "right -5%", scrub: true } }
-        );
+        const onScroll = () => {
+          const max = track.scrollWidth - track.clientWidth;
+          gsap.set(progressFill.current, { scaleX: max > 0 ? track.scrollLeft / max : 0 });
+        };
+        track.addEventListener("scroll", onScroll, { passive: true });
 
-        // Glow or — s'éclaire au centre
-        const numEl = numberRefs.current[idx];
-        if (numEl) {
-          gsap.fromTo(numEl,
-            { filter: "drop-shadow(0 0 0px rgba(212,175,55,0))" },
-            { filter: "drop-shadow(0 0 28px rgba(247,239,138,0.95)) drop-shadow(0 0 60px rgba(212,175,55,0.6))",
-              ease: "power2.out",
-              scrollTrigger: { trigger: card, containerAnimation: mainTween,
-                start: "left 65%", end: "left 20%", scrub: true } }
-          );
-          gsap.fromTo(numEl,
-            { filter: "drop-shadow(0 0 28px rgba(247,239,138,0.95)) drop-shadow(0 0 60px rgba(212,175,55,0.6))" },
-            { filter: "drop-shadow(0 0 0px rgba(212,175,55,0))",
-              ease: "power2.in",
-              scrollTrigger: { trigger: card, containerAnimation: mainTween,
-                start: "right 65%", end: "right 20%", scrub: true } }
-          );
-        }
+        return () => track.removeEventListener("scroll", onScroll);
       });
 
     }, sectionRef);
@@ -181,19 +202,19 @@ export default function BlogSection() {
       {/* ── Film strip — plein écran ─────────────────────────────────────── */}
       <div
         ref={pinnedRef}
-        className="h-[100dvh] overflow-hidden relative bg-[#060606]
+        className="hs-pinned h-[100dvh] overflow-hidden relative bg-[#060606]
                    pt-[72px] pb-3 md:pt-[64px] md:pb-4"
       >
         <div
           ref={trackRef}
-          className="flex h-full will-change-transform"
+          className="flex h-full md:will-change-transform"
           style={{ gap: "1px" }}
         >
           {articles.map((article, i) => (
             <article
               key={article.number}
               ref={(el) => { cardRefs.current[i] = el as HTMLDivElement | null; }}
-              className="flex-shrink-0 relative flex flex-col
+              className="hs-card-snap flex-shrink-0 relative flex flex-col
                          w-[88vw] md:w-[55vw] bg-[#060606] border-r border-[#1c1c1c]
                          px-6 md:px-14 pt-5 md:pt-10 pb-5 md:pb-12 cursor-pointer group"
             >

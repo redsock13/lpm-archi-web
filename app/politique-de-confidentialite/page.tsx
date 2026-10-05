@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Politique de Confidentialité — LPM Maître d'Œuvre",
   description:
     "Politique de confidentialité de LPM, maître d'œuvre en Haute-Garonne. Informations sur la collecte et l'utilisation de vos données personnelles.",
+  alternates: { canonical: "/politique-de-confidentialite" },
 };
 
 const sections = [

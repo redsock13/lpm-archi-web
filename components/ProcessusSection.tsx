@@ -86,44 +86,62 @@ export default function ProcessusSection() {
           stagger: 0.18, delay: 0.45, scrollTrigger: headingTrigger }
       );
 
-      // ── Universal horizontal film strip ──────────────────────────────────
+      // ── Film strip horizontal ─────────────────────────────────────────────
+      // Desktop (≥768px) : pin + scroll-jack cinématique.
+      // Mobile (<768px)  : scroll horizontal natif (.hs-pinned), le scroll
+      // vertical de la page n'est jamais intercepté (cf. audit ergonomie).
       const track  = trackRef.current;
       const pinned = pinnedRef.current;
       if (!track || !pinned) return;
 
-      const getScrollDist = () => track.scrollWidth - pinned.offsetWidth;
+      const mm = gsap.matchMedia();
 
-      const mainTween = gsap.to(track, {
-        x: () => -getScrollDist(),
-        ease: "none",
-        scrollTrigger: {
-          trigger: pinned,
-          pin: true,
-          start: "top top",
-          end: () => `+=${getScrollDist()}`,
-          scrub: 1.4,
-          pinSpacing: true,
-          invalidateOnRefresh: true,
-          anticipatePin: 1,
-          onUpdate: (self) => gsap.set(progressFill.current, { scaleX: self.progress }),
-        },
+      mm.add("(min-width: 768px)", () => {
+        const getScrollDist = () => track.scrollWidth - pinned.offsetWidth;
+
+        const mainTween = gsap.to(track, {
+          x: () => -getScrollDist(),
+          ease: "none",
+          scrollTrigger: {
+            trigger: pinned,
+            pin: true,
+            start: "top top",
+            end: () => `+=${getScrollDist()}`,
+            scrub: 1.4,
+            pinSpacing: true,
+            invalidateOnRefresh: true,
+            anticipatePin: 1,
+            onUpdate: (self) => gsap.set(progressFill.current, { scaleX: self.progress }),
+          },
+        });
+
+        cardRefs.current.forEach((card) => {
+          if (!card) return;
+          gsap.fromTo(card,
+            { opacity: 0.06 },
+            { opacity: 1, ease: "power2.out",
+              scrollTrigger: { trigger: card, containerAnimation: mainTween,
+                start: "left 95%", end: "left 40%", scrub: true } }
+          );
+          gsap.fromTo(card,
+            { opacity: 1 },
+            { opacity: 0.08, ease: "power2.in",
+              scrollTrigger: { trigger: card, containerAnimation: mainTween,
+                start: "right 55%", end: "right -5%", scrub: true } }
+          );
+        });
       });
 
-      // Per-card fade-in
-      cardRefs.current.forEach((card) => {
-        if (!card) return;
-        gsap.fromTo(card,
-          { opacity: 0.06 },
-          { opacity: 1, ease: "power2.out",
-            scrollTrigger: { trigger: card, containerAnimation: mainTween,
-              start: "left 95%", end: "left 40%", scrub: true } }
-        );
-        gsap.fromTo(card,
-          { opacity: 1 },
-          { opacity: 0.08, ease: "power2.in",
-            scrollTrigger: { trigger: card, containerAnimation: mainTween,
-              start: "right 55%", end: "right -5%", scrub: true } }
-        );
+      mm.add("(max-width: 767px)", () => {
+        gsap.set(cardRefs.current, { opacity: 1 });
+
+        const onScroll = () => {
+          const max = track.scrollWidth - track.clientWidth;
+          gsap.set(progressFill.current, { scaleX: max > 0 ? track.scrollLeft / max : 0 });
+        };
+        track.addEventListener("scroll", onScroll, { passive: true });
+
+        return () => track.removeEventListener("scroll", onScroll);
       });
 
     }, sectionRef);
@@ -217,19 +235,19 @@ export default function ProcessusSection() {
       {/* ── Film strip horizontal — universel ───────────────────────────── */}
       <div
         ref={pinnedRef}
-        className="h-[100dvh] overflow-hidden relative bg-[#0d0d0d]
+        className="hs-pinned h-[100dvh] overflow-hidden relative bg-[#0d0d0d]
                    pt-[72px] pb-3 md:pt-[64px] md:pb-4"
       >
         {/* Track */}
         <div
           ref={trackRef}
-          className="flex h-full will-change-transform"
+          className="flex h-full md:will-change-transform"
         >
           {STEPS.map((step, i) => (
             <div
               key={step.number}
               ref={(el) => { cardRefs.current[i] = el; }}
-              className="step-card flex-shrink-0 relative flex flex-col justify-center
+              className="hs-card-snap flex-shrink-0 relative flex flex-col justify-center
                          px-8 md:px-16 xl:px-20
                          w-[88vw] md:w-[55vw]"
             >

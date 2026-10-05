@@ -107,71 +107,88 @@ export default function ExpertiseSection() {
       const pinned = pinnedRef.current;
       if (!track || !pinned) return;
 
-      const getScrollDist = () => track.scrollWidth - pinned.offsetWidth;
+      // Desktop (≥768px) : pin + scroll-jack cinématique avec snap.
+      // Mobile (<768px)  : scroll horizontal natif (.hs-pinned), le scroll
+      // vertical de la page n'est jamais intercepté (cf. audit ergonomie).
+      const mm = gsap.matchMedia();
 
-      // ── Film strip principal avec SNAP ────────────────────────────────
-      const mainTween = gsap.to(track, {
-        x: () => -getScrollDist(),
-        ease: "none",
-        scrollTrigger: {
-          trigger: pinned,
-          pin: true,
-          start: "top top",
-          end: () => `+=${getScrollDist()}`,
-          scrub: 1.2,
-          snap: {
-            snapTo: 1 / (services.length - 1),
-            duration: { min: 0.25, max: 0.5 },
-            ease: "power2.inOut",
-            delay: 0.05,
+      mm.add("(min-width: 768px)", () => {
+        const getScrollDist = () => track.scrollWidth - pinned.offsetWidth;
+
+        // ── Film strip principal avec SNAP ────────────────────────────────
+        const mainTween = gsap.to(track, {
+          x: () => -getScrollDist(),
+          ease: "none",
+          scrollTrigger: {
+            trigger: pinned,
+            pin: true,
+            start: "top top",
+            end: () => `+=${getScrollDist()}`,
+            scrub: 1.2,
+            snap: {
+              snapTo: 1 / (services.length - 1),
+              duration: { min: 0.25, max: 0.5 },
+              ease: "power2.inOut",
+              delay: 0.05,
+            },
+            pinSpacing: true,
+            invalidateOnRefresh: true,
+            anticipatePin: 1,
+            onUpdate: (self) => gsap.set(progressFill.current, { scaleX: self.progress }),
           },
-          pinSpacing: true,
-          invalidateOnRefresh: true,
-          anticipatePin: 1,
-          onUpdate: (self) => gsap.set(progressFill.current, { scaleX: self.progress }),
-        },
+        });
+
+        // ── Par carte : reveal cinématique grayscale → couleurs ───────────
+        cardRefs.current.forEach((card, idx) => {
+          if (!card) return;
+
+          gsap.fromTo(card,
+            { opacity: 0.07, filter: "brightness(0.25) saturate(0) grayscale(1)" },
+            { opacity: 1,    filter: "brightness(1) saturate(1) grayscale(0)", ease: "power2.out",
+              scrollTrigger: { trigger: card, containerAnimation: mainTween,
+                start: "left 95%", end: "left 35%", scrub: true } }
+          );
+
+          gsap.fromTo(card,
+            { opacity: 1,   filter: "brightness(1) saturate(1) grayscale(0)" },
+            { opacity: 0.1, filter: "brightness(0.25) saturate(0) grayscale(1)", ease: "power2.in",
+              scrollTrigger: { trigger: card, containerAnimation: mainTween,
+                start: "right 52%", end: "right -5%", scrub: true } }
+          );
+
+          const numEl = numberRefs.current[idx];
+          if (numEl) {
+            gsap.fromTo(numEl,
+              { filter: "drop-shadow(0 0 0px rgba(212,175,55,0))" },
+              { filter: "drop-shadow(0 0 28px rgba(247,239,138,0.95)) drop-shadow(0 0 60px rgba(212,175,55,0.6))",
+                ease: "power2.out",
+                scrollTrigger: { trigger: card, containerAnimation: mainTween,
+                  start: "left 65%", end: "left 20%", scrub: true } }
+            );
+            gsap.fromTo(numEl,
+              { filter: "drop-shadow(0 0 28px rgba(247,239,138,0.95)) drop-shadow(0 0 60px rgba(212,175,55,0.6))" },
+              { filter: "drop-shadow(0 0 0px rgba(212,175,55,0))",
+                ease: "power2.in",
+                scrollTrigger: { trigger: card, containerAnimation: mainTween,
+                  start: "right 65%", end: "right 20%", scrub: true } }
+            );
+          }
+        });
       });
 
-      // ── Par carte : reveal cinématique grayscale → couleurs ───────────
-      cardRefs.current.forEach((card, idx) => {
-        if (!card) return;
+      mm.add("(max-width: 767px)", () => {
+        gsap.set(cardRefs.current, { opacity: 1, filter: "brightness(1) saturate(1) grayscale(0)" });
+        gsap.set(numberRefs.current, {
+          filter: "drop-shadow(0 0 28px rgba(247,239,138,0.95)) drop-shadow(0 0 60px rgba(212,175,55,0.6))",
+        });
 
-        // Entrée : noir/blanc → couleurs
-        gsap.fromTo(card,
-          { opacity: 0.07, filter: "brightness(0.25) saturate(0) grayscale(1)" },
-          { opacity: 1,    filter: "brightness(1) saturate(1) grayscale(0)", ease: "power2.out",
-            scrollTrigger: { trigger: card, containerAnimation: mainTween,
-              start: "left 95%", end: "left 35%", scrub: true } }
-        );
+        const onScroll = () => {
+          const max = track.scrollWidth - track.clientWidth;
+          gsap.set(progressFill.current, { scaleX: max > 0 ? track.scrollLeft / max : 0 });
+        };
+        track.addEventListener("scroll", onScroll, { passive: true });
 
-        // Sortie : retour noir/blanc
-        gsap.fromTo(card,
-          { opacity: 1,   filter: "brightness(1) saturate(1) grayscale(0)" },
-          { opacity: 0.1, filter: "brightness(0.25) saturate(0) grayscale(1)", ease: "power2.in",
-            scrollTrigger: { trigger: card, containerAnimation: mainTween,
-              start: "right 52%", end: "right -5%", scrub: true } }
-        );
-
-        // ── Glow or : s'illumine quand la carte est au centre ───────────
-        const numEl = numberRefs.current[idx];
-        if (numEl) {
-          // Montée du glow (carte arrive au centre)
-          gsap.fromTo(numEl,
-            { filter: "drop-shadow(0 0 0px rgba(212,175,55,0))" },
-            { filter: "drop-shadow(0 0 28px rgba(247,239,138,0.95)) drop-shadow(0 0 60px rgba(212,175,55,0.6))",
-              ease: "power2.out",
-              scrollTrigger: { trigger: card, containerAnimation: mainTween,
-                start: "left 65%", end: "left 20%", scrub: true } }
-          );
-          // Descente du glow (carte quitte le centre)
-          gsap.fromTo(numEl,
-            { filter: "drop-shadow(0 0 28px rgba(247,239,138,0.95)) drop-shadow(0 0 60px rgba(212,175,55,0.6))" },
-            { filter: "drop-shadow(0 0 0px rgba(212,175,55,0))",
-              ease: "power2.in",
-              scrollTrigger: { trigger: card, containerAnimation: mainTween,
-                start: "right 65%", end: "right 20%", scrub: true } }
-          );
-        }
+        return () => track.removeEventListener("scroll", onScroll);
       });
 
     }, sectionRef);
@@ -218,12 +235,12 @@ export default function ExpertiseSection() {
       {/* ── Film strip — plein écran ───────────────────────────────────── */}
       <div
         ref={pinnedRef}
-        className="h-[100dvh] overflow-hidden relative bg-[#080808]
+        className="hs-pinned h-[100dvh] overflow-hidden relative bg-[#080808]
                    pt-[72px] pb-3 md:pt-[64px] md:pb-4"
       >
         <div
           ref={trackRef}
-          className="flex h-full will-change-transform"
+          className="flex h-full md:will-change-transform"
           style={{ gap: "1px" }}
         >
           {services.map((service, i) => {
@@ -232,7 +249,7 @@ export default function ExpertiseSection() {
               <div
                 key={service.number}
                 ref={(el) => { cardRefs.current[i] = el; }}
-                className="flex-shrink-0 relative overflow-hidden w-[88vw] md:w-[55vw]
+                className="hs-card-snap flex-shrink-0 relative overflow-hidden w-[88vw] md:w-[55vw]
                            flex flex-col px-6 md:px-12 pt-5 md:pt-10 pb-5 md:pb-12"
               >
                 {/* Background image */}

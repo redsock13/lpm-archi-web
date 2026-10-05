@@ -194,17 +194,20 @@ body {
   filter: brightness(1.0) saturate(1.0);
 }
 
-/* ── ProcessusSection — scroll natif mobile ──────────────────────────────── */
+/* ── Film strips horizontaux (Expertise, Portfolio, Processus, Blog) ────────
+   Mobile : scroll horizontal natif, le défilement vertical n'est jamais
+   capturé — on évite l'effet "la page résiste" (cf. audit ergonomie).
+   Desktop (≥768px) : pin + scroll-jack GSAP géré en JS (voir composants). ── */
 @media (max-width: 767px) {
-  .processus-pinned {
+  .hs-pinned {
     overflow-x: scroll;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
-  .processus-pinned::-webkit-scrollbar { display: none; }
-  .step-card { scroll-snap-align: start; }
+  .hs-pinned::-webkit-scrollbar { display: none; }
+  .hs-card-snap { scroll-snap-align: start; }
 }
 
 /* Input autofill overrides */

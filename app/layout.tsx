@@ -36,9 +36,11 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://lpmoe.com"),
   title: "LPM Maître d'Œuvre Haute-Garonne | Maisons Sur-Mesure",
   description:
     "LPM, votre maître d'œuvre en Haute-Garonne. Construction de maison sur mesure, norme RE2020, coûts maîtrisés et artisans qualifiés. De la conception aux clés.",
+  alternates: { canonical: "/" },
   keywords: [
     "maître d'œuvre Haute-Garonne",
     "construction maison individuelle",

@@ -93,103 +93,120 @@ export default function PortfolioSection() {
       const pinned = pinnedRef.current;
       if (!track || !pinned) return;
 
-      const getScrollDist = () => track.scrollWidth - pinned.offsetWidth;
+      // Desktop (≥768px) : pin + scroll-jack cinématique.
+      // Mobile (<768px)  : scroll horizontal natif (.hs-pinned), le scroll
+      // vertical de la page n'est jamais intercepté (cf. audit ergonomie).
+      const mm = gsap.matchMedia();
 
-      // Horizontal scroll + progress bar in sync
-      const mainTween = gsap.to(track, {
-        x: () => -getScrollDist(),
-        ease: "none",
-        scrollTrigger: {
-          trigger: pinned,
-          pin: true,
-          start: "top top",
-          end: () => `+=${getScrollDist()}`,
-          scrub: 1.4,
-          invalidateOnRefresh: true,
-          anticipatePin: 1,
-          onUpdate: (self) => {
-            gsap.set(progressFill.current, { scaleX: self.progress });
-          },
-        },
-      });
+      mm.add("(min-width: 768px)", () => {
+        const getScrollDist = () => track.scrollWidth - pinned.offsetWidth;
 
-      // Per-card: cinematic fade in/out on horizontal pass
-      cardRefs.current.forEach((card) => {
-        if (!card) return;
-
-        gsap.fromTo(
-          card,
-          { opacity: 0.08, filter: "brightness(0.35) saturate(0.2)" },
-          {
-            opacity: 1,
-            filter: "brightness(1) saturate(1)",
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: card,
-              containerAnimation: mainTween,
-              start: "left 98%",
-              end: "left 40%",
-              scrub: true,
-            },
-          }
-        );
-
-        gsap.fromTo(
-          card,
-          { opacity: 1, filter: "brightness(1) saturate(1)" },
-          {
-            opacity: 0.1,
-            filter: "brightness(0.3) saturate(0.15)",
-            ease: "power2.in",
-            scrollTrigger: {
-              trigger: card,
-              containerAnimation: mainTween,
-              start: "right 55%",
-              end: "right -5%",
-              scrub: true,
-            },
-          }
-        );
-      });
-
-      // City names: fade + scale entrance + x parallax
-      cityRefs.current.forEach((span, i) => {
-        if (!span) return;
-
-        // État initial invisible
-        gsap.set(span, { opacity: 0, scale: 0.80 });
-
-        // Entrance fade + scale (non-scrubbed : joue une fois)
-        gsap.to(span, {
-          opacity: 1,
-          scale: 1,
-          duration: 0.9,
-          ease: "power3.out",
+        // Horizontal scroll + progress bar in sync
+        const mainTween = gsap.to(track, {
+          x: () => -getScrollDist(),
+          ease: "none",
           scrollTrigger: {
-            trigger: cardRefs.current[i],
-            containerAnimation: mainTween,
-            start: "left 88%",
-            end: "left 55%",
-            toggleActions: "play none none none",
+            trigger: pinned,
+            pin: true,
+            start: "top top",
+            end: () => `+=${getScrollDist()}`,
+            scrub: 1.4,
+            invalidateOnRefresh: true,
+            anticipatePin: 1,
+            onUpdate: (self) => {
+              gsap.set(progressFill.current, { scaleX: self.progress });
+            },
           },
         });
 
-        // Parallaxe X (scrubbed)
-        gsap.fromTo(
-          span,
-          { x: 60 },
-          {
-            x: -60,
-            ease: "none",
+        // Per-card: cinematic fade in/out on horizontal pass
+        cardRefs.current.forEach((card) => {
+          if (!card) return;
+
+          gsap.fromTo(
+            card,
+            { opacity: 0.08, filter: "brightness(0.35) saturate(0.2)" },
+            {
+              opacity: 1,
+              filter: "brightness(1) saturate(1)",
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: card,
+                containerAnimation: mainTween,
+                start: "left 98%",
+                end: "left 40%",
+                scrub: true,
+              },
+            }
+          );
+
+          gsap.fromTo(
+            card,
+            { opacity: 1, filter: "brightness(1) saturate(1)" },
+            {
+              opacity: 0.1,
+              filter: "brightness(0.3) saturate(0.15)",
+              ease: "power2.in",
+              scrollTrigger: {
+                trigger: card,
+                containerAnimation: mainTween,
+                start: "right 55%",
+                end: "right -5%",
+                scrub: true,
+              },
+            }
+          );
+        });
+
+        // City names: fade + scale entrance + x parallax
+        cityRefs.current.forEach((span, i) => {
+          if (!span) return;
+
+          gsap.set(span, { opacity: 0, scale: 0.80 });
+
+          gsap.to(span, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.9,
+            ease: "power3.out",
             scrollTrigger: {
               trigger: cardRefs.current[i],
               containerAnimation: mainTween,
-              start: "left right",
-              end: "right left",
-              scrub: true,
+              start: "left 88%",
+              end: "left 55%",
+              toggleActions: "play none none none",
             },
-          }
-        );
+          });
+
+          gsap.fromTo(
+            span,
+            { x: 60 },
+            {
+              x: -60,
+              ease: "none",
+              scrollTrigger: {
+                trigger: cardRefs.current[i],
+                containerAnimation: mainTween,
+                start: "left right",
+                end: "right left",
+                scrub: true,
+              },
+            }
+          );
+        });
+      });
+
+      mm.add("(max-width: 767px)", () => {
+        gsap.set(cardRefs.current, { opacity: 1, filter: "brightness(1) saturate(1)" });
+        gsap.set(cityRefs.current, { opacity: 1, scale: 1 });
+
+        const onScroll = () => {
+          const max = track.scrollWidth - track.clientWidth;
+          gsap.set(progressFill.current, { scaleX: max > 0 ? track.scrollLeft / max : 0 });
+        };
+        track.addEventListener("scroll", onScroll, { passive: true });
+
+        return () => track.removeEventListener("scroll", onScroll);
       });
     }, sectionRef);
 
@@ -268,19 +285,19 @@ export default function PortfolioSection() {
       ════════════════════════════════════════════════════════════════ */}
       <div
         ref={pinnedRef}
-        className="h-[100dvh] overflow-hidden relative bg-[#060606]"
+        className="hs-pinned h-[100dvh] overflow-hidden relative bg-[#060606]"
       >
         {/* Track */}
         <div
           ref={trackRef}
-          className="flex h-full will-change-transform"
+          className="flex h-full md:will-change-transform"
           style={{ gap: "2px" }}
         >
           {projects.map((project, i) => (
             <div
               key={project.id}
               ref={(el) => { cardRefs.current[i] = el; }}
-              className="hs-card flex-shrink-0 relative overflow-hidden
+              className="hs-card-snap flex-shrink-0 relative overflow-hidden
                          w-[88vw] md:w-[55vw]"
             >
               {/* Clickable link — covers the full card */}

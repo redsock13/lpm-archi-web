@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Maître d'Œuvre, Architecte ou Constructeur : Lequel Choisir ? | LPM",
   description:
     "CMI, architecte DPLG ou maître d'œuvre : quelles différences, quelles missions, quel professionnel pour votre projet de construction en Haute-Garonne ? Guide LPM.",
+  alternates: { canonical: "/guides/maitre-oeuvre-architecte-constructeur" },
   keywords: [
     "maître d'œuvre ou architecte",
     "différence maître d'œuvre constructeur",
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
     title: "Maître d'Œuvre, Architecte ou Constructeur : Lequel Choisir ? | LPM",
     description:
       "CMI, architecte DPLG ou maître d'œuvre : quelles différences, quelles missions, quel professionnel pour votre projet de construction en Haute-Garonne ?",
-    url: "https://lpm-archi.fr/guides/maitre-oeuvre-architecte-constructeur",
+    url: "https://lpmoe.com/guides/maitre-oeuvre-architecte-constructeur",
     siteName: "LPM — Maître d'Œuvre Haute-Garonne",
     locale: "fr_FR",
     type: "article",
@@ -39,14 +40,14 @@ const schema = {
   publisher: {
     "@type": "Organization",
     name: "LPM — Maître d'Œuvre",
-    url: "https://lpm-archi.fr",
+    url: "https://lpmoe.com",
   },
   datePublished: "2025-09-01",
   dateModified: "2026-01-15",
   mainEntityOfPage: {
     "@type": "WebPage",
     "@id":
-      "https://lpm-archi.fr/guides/maitre-oeuvre-architecte-constructeur",
+      "https://lpmoe.com/guides/maitre-oeuvre-architecte-constructeur",
   },
 };
 

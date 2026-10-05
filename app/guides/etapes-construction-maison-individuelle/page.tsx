@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "5 Étapes Construction Maison Individuelle | Guide LPM Haute-Garonne",
   description:
     "De l'esquisse aux clés : découvrez les 5 étapes incontournables pour construire votre maison individuelle en Haute-Garonne. Programme, permis, chantier, réception.",
+  alternates: { canonical: "/guides/etapes-construction-maison-individuelle" },
   keywords: [
     "étapes construction maison individuelle",
     "processus construction maison neuve",
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
       "5 Étapes Construction Maison Individuelle | Guide LPM Haute-Garonne",
     description:
       "De l'esquisse aux clés : découvrez les 5 étapes incontournables pour construire votre maison individuelle en Haute-Garonne.",
-    url: "https://lpm-archi.fr/guides/etapes-construction-maison-individuelle",
+    url: "https://lpmoe.com/guides/etapes-construction-maison-individuelle",
     siteName: "LPM — Maître d'Œuvre Haute-Garonne",
     locale: "fr_FR",
     type: "article",
@@ -40,14 +41,14 @@ const schema = {
   publisher: {
     "@type": "Organization",
     name: "LPM — Maître d'Œuvre",
-    url: "https://lpm-archi.fr",
+    url: "https://lpmoe.com",
   },
   datePublished: "2025-09-01",
   dateModified: "2026-01-15",
   mainEntityOfPage: {
     "@type": "WebPage",
     "@id":
-      "https://lpm-archi.fr/guides/etapes-construction-maison-individuelle",
+      "https://lpmoe.com/guides/etapes-construction-maison-individuelle",
   },
 };
 

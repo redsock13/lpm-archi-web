@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Mentions Légales — LPM Maître d'Œuvre",
   description:
     "Mentions légales du site lpmoe.com — LPM, maître d'œuvre en Haute-Garonne. Éditeur, hébergement, propriété intellectuelle et données personnelles.",
+  alternates: { canonical: "/mentions-legales" },
 };
 
 const sections = [
