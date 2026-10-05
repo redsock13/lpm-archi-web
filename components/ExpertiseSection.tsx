@@ -42,13 +42,6 @@ const services = [
   },
 ];
 
-const stats = [
-  { value: "200+",  label: "Projets réalisés"   },
-  { value: "15 ans", label: "d'expertise"        },
-  { value: "98%",   label: "Clients satisfaits"  },
-  { value: "50M€+", label: "Travaux supervisés"  },
-];
-
 // ─── Magnetic tilt (desktop hover only) ─────────────────────────────────────
 
 function MagneticContent({ children }: { children: React.ReactNode }) {
@@ -87,7 +80,6 @@ export default function ExpertiseSection() {
   const cardRefs     = useRef<(HTMLDivElement | null)[]>([]);
   const numberRefs   = useRef<(HTMLSpanElement | null)[]>([]);
   const progressFill = useRef<HTMLDivElement>(null);
-  const statsRef     = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -182,15 +174,6 @@ export default function ExpertiseSection() {
         }
       });
 
-      // Stats reveal
-      if (statsRef.current) {
-        gsap.fromTo(
-          statsRef.current.querySelectorAll(".stat-item"),
-          { y: 30, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.8, stagger: 0.12, ease: "power3.out",
-            scrollTrigger: { trigger: statsRef.current, start: "top 85%" } }
-        );
-      }
     }, sectionRef);
 
     const refreshTimer = window.setTimeout(() => ScrollTrigger.refresh(), 600);
@@ -344,24 +327,6 @@ export default function ExpertiseSection() {
             <path d="M0 4h14M11 1l3 3-3 3" stroke="rgba(245,240,232,0.25)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
-      </div>
-
-      {/* ── Stats — hors pin ─────────────────────────────────────────── */}
-      <div
-        ref={statsRef}
-        className="px-6 md:px-12 lg:px-20 py-16 md:py-20 border-t border-[#1c1c1c]
-                   grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 max-w-7xl mx-auto"
-      >
-        {stats.map((stat, i) => (
-          <div key={i} className="stat-item">
-            <div className="text-3xl md:text-4xl font-bold text-[#C9A84C] tracking-tight mb-2">
-              {stat.value}
-            </div>
-            <div className="text-[#8A8A8A] text-xs tracking-[0.1em] font-light uppercase">
-              {stat.label}
-            </div>
-          </div>
-        ))}
       </div>
     </section>
   );

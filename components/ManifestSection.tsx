@@ -109,31 +109,31 @@ export default function ManifestSection() {
 
         {/* ── Médaillon ───────────────────────────────────────────────────── */}
         <div ref={medallionRef} style={{ opacity: 0 }}>
-          {/* Aura pulsante — anneau derrière l'image */}
+          {/* Aura pulsante — halo doré derrière le cadre */}
           <div
             ref={auraRef}
             style={{
-              borderRadius: "50%",
+              borderRadius: "10px",
               boxShadow: "0 0 20px 4px rgba(212,175,55,0.18)",
             }}
           >
-            {/* Cercle image */}
+            {/* Cadre image rectangulaire arrondi */}
             <div
               style={{
-                width: "clamp(180px, 28vw, 280px)",
-                height: "clamp(180px, 28vw, 280px)",
-                borderRadius: "50%",
+                width: "min(clamp(300px, 68vw, 840px), 90vw)",
+                aspectRatio: "1536 / 973",
+                borderRadius: "10px",
                 overflow: "hidden",
                 border: "1.5px solid #D4AF37",
                 position: "relative",
               }}
             >
               <Image
-                src="/loicpetit.jpeg"
+                src="/loicpetit2.jpg"
                 alt="Loïc Petit, Maître d'Œuvre LPM"
                 fill
-                sizes="280px"
-                className="object-cover object-top"
+                sizes="840px"
+                className="object-cover object-center"
                 priority
               />
             </div>
@@ -144,24 +144,6 @@ export default function ManifestSection() {
         <h2 className="sr-only">
           Accompagnement et étude de projet RE2020 — Loïc Petit, maître d&apos;œuvre Haute-Garonne
         </h2>
-
-        {/* ── Nom — visuel uniquement ──────────────────────────────────────── */}
-        <p
-          aria-hidden="true"
-          ref={addReveal(0)}
-          style={{
-            fontFamily: SERIF,
-            fontSize: "clamp(1.6rem, 4vw, 3rem)",
-            fontWeight: 700,
-            letterSpacing: "0.22em",
-            color: "#F5F0E8",
-            textTransform: "uppercase",
-            marginTop: "2.4rem",
-            opacity: 0,
-          }}
-        >
-          Loïc Petit
-        </p>
 
         {/* ── Sous-titre ──────────────────────────────────────────────────── */}
         <p

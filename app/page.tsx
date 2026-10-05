@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Header            from "@/components/Header";
 import HeroSection       from "@/components/HeroSection";
+import ExpertiseSection  from "@/components/ExpertiseSection";
 import EngagementSection from "@/components/EngagementSection";
 import ManifestSection from "@/components/ManifestSection";
 import PortfolioSection from "@/components/PortfolioSection";
@@ -26,25 +27,28 @@ export default function Home() {
         {/* 1. Première impression */}
         <HeroSection isReady={ready} />
 
-        {/* 2. L'engagement LPM */}
+        {/* 2. Notre expertise */}
+        <ExpertiseSection />
+
+        {/* 3. L'engagement LPM */}
         <EngagementSection />
 
-        {/* 3. Qui est Loïc Petit */}
+        {/* 4. Qui est Loïc Petit */}
         <ManifestSection />
 
-        {/* 4. Ce que LPM a bâti */}
+        {/* 5. Ce que LPM a bâti */}
         <PortfolioSection />
 
-        {/* 5. Comment LPM travaille */}
+        {/* 6. Comment LPM travaille */}
         <ProcessusSection />
 
-        {/* 6. Réalité terrain */}
+        {/* 7. Réalité terrain */}
         <ChantierSection />
 
-        {/* 7. Conseils & Blog SEO */}
+        {/* 8. Conseils & Blog SEO */}
         <BlogSection />
 
-        {/* 8. Prise de contact */}
+        {/* 9. Prise de contact */}
         <ContactSection />
 
         <Footer />
