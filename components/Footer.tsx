@@ -134,9 +134,13 @@ export default function Footer() {
           >
             {CITIES.map((city) => (
               <li key={city}>
-                <span className="text-[#8A8A8A]/70 text-[10px] tracking-[0.15em] font-light hover:text-[#C9A84C]/80 transition-colors duration-200">
+                <Link
+                  href="/#contact"
+                  aria-label={`Parler de votre projet à ${city}`}
+                  className="text-[#8A8A8A]/70 text-[10px] tracking-[0.15em] font-light hover:text-[#C9A84C]/80 transition-colors duration-200"
+                >
                   {city}
-                </span>
+                </Link>
               </li>
             ))}
           </ul>
