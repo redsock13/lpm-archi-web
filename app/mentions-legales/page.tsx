@@ -42,7 +42,7 @@ const sections = [
             </a>
           </p>
           <p className="text-[#8A8A8A]">
-            SIRET : <span className="tracking-widest">— — — — — — — —</span>
+            SIREN : <span className="text-[#F5F0E8]/80 tracking-widest">944 690 288</span>
           </p>
         </div>
       </div>
