@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Send, MapPin, Phone, Mail } from "lucide-react";
+import { sendGAEvent } from "@next/third-parties/google";
 
 // ─── Informations officielles LPM ────────────────────────────────────────────
 const CONTACT = {
@@ -92,6 +93,11 @@ export default function ContactSection() {
       }
 
       setSubmitted(true);
+      sendGAEvent("event", "generate_lead", {
+        method: "contact_form",
+        city: formData.city || undefined,
+        budget: formData.budget || undefined,
+      });
     } catch (err) {
       setError(err instanceof Error ? err.message : "Une erreur est survenue.");
     } finally {
@@ -155,6 +161,7 @@ export default function ContactSection() {
                 </div>
                 <a
                   href={CONTACT.phoneTel}
+                  onClick={() => sendGAEvent("event", "phone_click", { source: "contact_section" })}
                   className="text-[#8A8A8A] text-sm font-light group-hover:text-[#D4AF37] transition-colors duration-300"
                   aria-label={`Appeler Loïc Petit au ${CONTACT.phone}`}
                 >
@@ -173,6 +180,7 @@ export default function ContactSection() {
                 </div>
                 <a
                   href={`mailto:${CONTACT.email}`}
+                  onClick={() => sendGAEvent("event", "email_click", { source: "contact_section" })}
                   className="text-[#8A8A8A] text-sm font-light group-hover:text-[#D4AF37] transition-colors duration-300"
                   aria-label={`Envoyer un email à ${CONTACT.email}`}
                 >

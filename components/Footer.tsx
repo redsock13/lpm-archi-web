@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { sendGAEvent } from "@next/third-parties/google";
 
 const footerLinks: Record<string, { label: string; href: string }[]> = {
   Services: [
@@ -50,11 +53,13 @@ export default function Footer() {
             </p>
             <div className="mt-5 flex flex-col gap-2">
               <a href="tel:+33782922112"
+                 onClick={() => sendGAEvent("event", "phone_click", { source: "footer" })}
                  className="text-[#C9A84C]/70 text-[11px] font-light tracking-wide hover:text-[#D4AF37] transition-colors duration-300"
                  aria-label="Appeler LPM au 07 82 92 21 12">
                 07 82 92 21 12
               </a>
               <a href="mailto:contact@lpmoe.com"
+                 onClick={() => sendGAEvent("event", "email_click", { source: "footer" })}
                  className="text-[#8A8A8A]/70 text-[11px] font-light hover:text-[#C9A84C] transition-colors duration-300"
                  aria-label="Envoyer un email à LPM">
                 contact@lpmoe.com
