@@ -21,7 +21,7 @@ export const metadata: Metadata = {
       "RE2020 Construction Maison 2026 | Guide Pratique LPM Haute-Garonne",
     description:
       "Tout comprendre sur la RE2020 pour construire votre maison neuve. Isolation, chauffage, matériaux biosourcés, impacts sur le coût.",
-    url: "https://lpmoe.com/guides/norme-re2020-construction-maison",
+    url: "https://www.lpmoe.com/guides/norme-re2020-construction-maison",
     siteName: "LPM — Maître d'Œuvre Haute-Garonne",
     locale: "fr_FR",
     type: "article",
@@ -48,13 +48,13 @@ const schema = {
   publisher: {
     "@type": "Organization",
     name: "LPM — Maître d'Œuvre",
-    url: "https://lpmoe.com",
+    url: "https://www.lpmoe.com",
   },
   datePublished: "2025-09-01",
   dateModified: "2026-01-15",
   mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": "https://lpmoe.com/guides/norme-re2020-construction-maison",
+    "@id": "https://www.lpmoe.com/guides/norme-re2020-construction-maison",
   },
 };
 

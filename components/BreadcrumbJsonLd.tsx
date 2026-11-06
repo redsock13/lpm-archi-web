@@ -1,6 +1,6 @@
 type Crumb = { name: string; path: string };
 
-const BASE_URL = "https://lpmoe.com";
+const BASE_URL = "https://www.lpmoe.com";
 
 export default function BreadcrumbJsonLd({ items }: { items: Crumb[] }) {
   const schema = {

@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://lpmoe.com/sitemap.xml",
+    sitemap: "https://www.lpmoe.com/sitemap.xml",
   };
 }

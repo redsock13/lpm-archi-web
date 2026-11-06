@@ -302,7 +302,7 @@ export default function BlogSection() {
 
       {/* ── CTA ─────────────────────────────────────────────────────────── */}
       <p className="py-8 text-center text-[#8A8A8A]/40 text-[10px] tracking-[0.3em] uppercase font-light border-t border-[#1c1c1c]">
-        Articles bientôt disponibles — abonnez-vous pour être notifié
+        Consultez nos guides pour préparer votre projet de construction
       </p>
     </section>
   );

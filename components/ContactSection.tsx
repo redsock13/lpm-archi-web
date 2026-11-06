@@ -14,7 +14,7 @@ const CONTACT = {
   phone:   "07 82 92 21 12",
   phoneTel: "tel:+33782922112",
   email:   "contact@lpmoe.com",
-  address: "31330 Grenade, Haute-Garonne",
+  address: "7 rue des Églantiers, 31330 Grenade",
 };
 
 const BUDGETS = [

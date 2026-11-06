@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "Construction Maison Individuelle à Fronton (31) | LPM Maître d'Œuvre",
     description:
       "Construction de maison individuelle à Fronton, en Haute-Garonne : de la conception au suivi de chantier.",
-    url: "https://lpmoe.com/projets/fronton",
+    url: "https://www.lpmoe.com/projets/fronton",
     siteName: "LPM — Maître d'Œuvre Haute-Garonne",
     locale: "fr_FR",
     type: "website",

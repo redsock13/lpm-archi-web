@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "Construction Maison Individuelle à Launac (31) | LPM Maître d'Œuvre",
     description:
       "Construction de maison individuelle à Launac, en Haute-Garonne : pilotée de bout en bout par LPM.",
-    url: "https://lpmoe.com/projets/launac",
+    url: "https://www.lpmoe.com/projets/launac",
     siteName: "LPM — Maître d'Œuvre Haute-Garonne",
     locale: "fr_FR",
     type: "website",

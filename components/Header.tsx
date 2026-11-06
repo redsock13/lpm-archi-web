@@ -122,7 +122,7 @@ export default function Header() {
               transition={{ delay: 0.3 }}
               className="pt-4 border-t border-[#1c1c1c] text-xs text-[#8A8A8A] tracking-widest"
             >
-              contact@lpm-archi.fr
+              contact@lpmoe.com
             </motion.div>
           </motion.div>
         )}

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "Construction Maison Individuelle à Grenade-sur-Garonne | LPM",
     description:
       "Construction de maison individuelle à Grenade-sur-Garonne, en Haute-Garonne : pilotée de bout en bout par LPM.",
-    url: "https://lpmoe.com/projets/grenade",
+    url: "https://www.lpmoe.com/projets/grenade",
     siteName: "LPM — Maître d'Œuvre Haute-Garonne",
     locale: "fr_FR",
     type: "website",

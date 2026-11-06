@@ -35,10 +35,10 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://lpmoe.com"),
-  title: "LPM Maître d'Œuvre Haute-Garonne | Maisons Sur-Mesure",
+  metadataBase: new URL("https://www.lpmoe.com"),
+  title: "Maître d’œuvre à Grenade et en Haute-Garonne | LPM",
   description:
-    "LPM, votre maître d'œuvre en Haute-Garonne. Construction de maison sur mesure, norme RE2020, coûts maîtrisés et artisans qualifiés. De la conception aux clés.",
+    "LPM, maître d’œuvre à Grenade : conception de maisons sur mesure, permis de construire, coordination et suivi de chantier en Haute-Garonne.",
   alternates: { canonical: "/" },
   keywords: [
     "maître d'œuvre Haute-Garonne",
@@ -50,10 +50,10 @@ export const metadata: Metadata = {
     "permis de construire",
   ],
   openGraph: {
-    title: "LPM Maître d'Œuvre Haute-Garonne | Maisons Sur-Mesure",
+    title: "Maître d’œuvre à Grenade et en Haute-Garonne | LPM",
     description:
-      "Construction de maison sur mesure en Haute-Garonne. Maîtrise d'œuvre complète, norme RE2020, artisans qualifiés. Devis gratuit.",
-    url: "https://lpmoe.com",
+      "Votre maison sur mesure avec LPM à Grenade : conception, permis de construire et suivi de chantier en Haute-Garonne.",
+    url: "https://www.lpmoe.com",
     siteName: "LPM — Maître d'Œuvre Haute-Garonne",
     locale: "fr_FR",
     type: "website",
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "LPM Maître d'Œuvre Haute-Garonne | Maisons Sur-Mesure",
+    title: "Maître d’œuvre à Grenade et en Haute-Garonne | LPM",
     description:
       "Construction de maison sur mesure en Haute-Garonne. Maîtrise d'œuvre complète, norme RE2020, artisans qualifiés.",
     images: ["/hero-bg-poster.jpg"],
@@ -89,26 +89,44 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "ProfessionalService",
+              "@id": "https://www.lpmoe.com/#entreprise",
               "name": "LPM",
               "description": "Maître d'œuvre spécialisé en construction de maisons individuelles sur mesure en Haute-Garonne et Tarn-et-Garonne.",
-              "url": "https://lpmoe.com",
-              "image": "https://lpmoe.com/lpm-logo.png",
+              "url": "https://www.lpmoe.com",
+              "image": "https://www.lpmoe.com/lpm-logo.png",
+              "logo": "https://www.lpmoe.com/lpm-logo.png",
+              "hasMap": "https://www.google.com/maps?cid=6594430834115657126",
               "telephone": "+33782922112",
               "email": "contact@lpmoe.com",
               "founder": { "@type": "Person", "name": "Loïc Petit" },
+              "openingHoursSpecification": [{
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "08:00",
+                "closes": "18:00",
+              }],
               "areaServed": [
                 { "@type": "AdministrativeArea", "name": "Haute-Garonne" },
                 { "@type": "AdministrativeArea", "name": "Tarn-et-Garonne" },
+                { "@type": "City", "name": "Agen" },
               ],
-              "serviceType": [
-                "Construction de maison individuelle",
-                "Maîtrise d'œuvre",
-                "Pilotage de chantier",
-                "Dépôt permis de construire",
-              ],
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Missions de maîtrise d’œuvre",
+                "itemListElement": [
+                  "Conception de maisons individuelles sur mesure",
+                  "Accompagnement au permis de construire",
+                  "Coordination des entreprises et suivi de chantier",
+                  "Assistance à la réception des travaux",
+                ].map((name) => ({
+                  "@type": "Offer",
+                  "itemOffered": { "@type": "Service", name },
+                })),
+              },
               "knowsAbout": ["RE2020", "Maîtrise d'œuvre", "Construction maison neuve"],
               "address": {
                 "@type": "PostalAddress",
+                "streetAddress": "7 rue des Églantiers",
                 "addressLocality": "Grenade",
                 "postalCode": "31330",
                 "addressRegion": "Haute-Garonne",

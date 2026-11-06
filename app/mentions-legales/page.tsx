@@ -21,8 +21,8 @@ const sections = [
           <p>
             <strong className="text-[#F5F0E8]/90 font-medium">Loïc Petit</strong> — Maître d&apos;œuvre (LPM)
           </p>
-          <p>Entrepreneur Individuel</p>
-          <p>Siège social : <span className="text-[#F5F0E8]/80">31330 GRENADE, France</span></p>
+          <p>LPM — SASU, société par actions simplifiée unipersonnelle</p>
+          <p>Siège social : <span className="text-[#F5F0E8]/80">7 rue des Églantiers, 31330 Grenade, France</span></p>
           <p>
             Téléphone :{" "}
             <a

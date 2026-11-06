@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "Construction Maison Individuelle à Saint-Cézert (31) — Parcelle 238 | LPM",
     description:
       "Construction de maison individuelle à Saint-Cézert, en Haute-Garonne : pilotée de bout en bout par LPM.",
-    url: "https://lpmoe.com/projets/saint-cezert-2",
+    url: "https://www.lpmoe.com/projets/saint-cezert-2",
     siteName: "LPM — Maître d'Œuvre Haute-Garonne",
     locale: "fr_FR",
     type: "website",
