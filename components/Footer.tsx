@@ -6,6 +6,7 @@ import { sendGAEvent } from "@next/third-parties/google";
 
 const footerLinks: Record<string, { label: string; href: string }[]> = {
   Services: [
+    { label: "Construction de maison", href: "/construction-maison-individuelle" },
     { label: "Maîtrise d'Œuvre",   href: "/#expertise"   },
     { label: "Pilotage de Projet",  href: "/#processus"   },
     { label: "Conseil & Audit",     href: "/#engagement"  },

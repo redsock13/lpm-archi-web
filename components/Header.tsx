@@ -2,13 +2,15 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: "Expertise", href: "#expertise" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Contact", href: "#contact" },
+  { label: "Construction", href: "/construction-maison-individuelle" },
+  { label: "Expertise", href: "/#expertise" },
+  { label: "Portfolio", href: "/#portfolio" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Header() {
@@ -30,7 +32,7 @@ export default function Header() {
       }`}
     >
       {/* Logo */}
-      <a href="#" className="relative z-10 flex items-center">
+      <Link href="/" className="relative z-10 flex items-center">
         <Image
           src="/lpm-logo.png"
           alt="LPM"
@@ -40,7 +42,7 @@ export default function Header() {
           style={{ filter: "brightness(0) invert(1)" }}
           priority
         />
-      </a>
+      </Link>
 
       {/* Desktop nav */}
       <nav className="hidden md:flex items-center gap-10">
@@ -54,12 +56,12 @@ export default function Header() {
             <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#C9A84C] transition-all duration-300 group-hover:w-full" />
           </a>
         ))}
-        <a
-          href="#contact"
+        <Link
+          href="/#contact"
           className="text-xs tracking-[0.2em] uppercase px-7 py-3 border border-[#C9A84C]/40 text-[#C9A84C] hover:bg-[#C9A84C] hover:text-[#080808] transition-all duration-300 font-medium"
         >
           Nous Contacter
-        </a>
+        </Link>
       </nav>
 
       {/* Mobile menu button */}
