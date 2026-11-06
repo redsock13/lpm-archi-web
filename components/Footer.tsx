@@ -65,7 +65,7 @@ export default function Footer() {
                 contact@lpmoe.com
               </a>
               <span className="text-[#8A8A8A]/50 text-[10px] font-light">
-                31330 Grenade, Haute-Garonne
+                7 rue des Églantiers, 31330 Grenade · Lun–Ven : 8 h–18 h
               </span>
             </div>
             <div className="mt-8 flex items-center gap-1">

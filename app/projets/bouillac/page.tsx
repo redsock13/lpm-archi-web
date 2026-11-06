@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "Construction Maison Individuelle à Bouillac (82) | LPM Maître d'Œuvre",
     description:
       "Construction de maison individuelle à Bouillac, dans le Tarn-et-Garonne : pilotée de bout en bout par LPM.",
-    url: "https://lpmoe.com/projets/bouillac",
+    url: "https://www.lpmoe.com/projets/bouillac",
     siteName: "LPM — Maître d'Œuvre Haute-Garonne",
     locale: "fr_FR",
     type: "website",

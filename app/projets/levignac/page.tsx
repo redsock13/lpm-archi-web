@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "Construction Maison Individuelle à Lévignac (31) | LPM Maître d'Œuvre",
     description:
       "Construction de maison individuelle à Lévignac, en Haute-Garonne : pilotée de bout en bout par LPM.",
-    url: "https://lpmoe.com/projets/levignac",
+    url: "https://www.lpmoe.com/projets/levignac",
     siteName: "LPM — Maître d'Œuvre Haute-Garonne",
     locale: "fr_FR",
     type: "website",

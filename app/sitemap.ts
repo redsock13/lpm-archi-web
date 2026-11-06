@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = "https://lpmoe.com";
+const BASE_URL = "https://www.lpmoe.com";
 
 const projects = [
   "agen",
@@ -23,23 +23,19 @@ const guides = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
-
   return [
-    { url: BASE_URL, lastModified: now, changeFrequency: "weekly", priority: 1 },
+    { url: BASE_URL, changeFrequency: "weekly", priority: 1 },
     ...guides.map((slug) => ({
       url: `${BASE_URL}/guides/${slug}`,
-      lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),
     ...projects.map((slug) => ({
       url: `${BASE_URL}/projets/${slug}`,
-      lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.6,
     })),
-    { url: `${BASE_URL}/mentions-legales`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
-    { url: `${BASE_URL}/politique-de-confidentialite`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
+    { url: `${BASE_URL}/mentions-legales`, changeFrequency: "yearly", priority: 0.2 },
+    { url: `${BASE_URL}/politique-de-confidentialite`, changeFrequency: "yearly", priority: 0.2 },
   ];
 }

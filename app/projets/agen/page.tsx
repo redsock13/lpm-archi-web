@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "Construction Maison Individuelle à Agen (47) | LPM Maître d'Œuvre",
     description:
       "Construction de maison individuelle à Agen, dans le Lot-et-Garonne : de la conception au suivi de chantier, par LPM.",
-    url: "https://lpmoe.com/projets/agen",
+    url: "https://www.lpmoe.com/projets/agen",
     siteName: "LPM — Maître d'Œuvre Haute-Garonne",
     locale: "fr_FR",
     type: "website",
