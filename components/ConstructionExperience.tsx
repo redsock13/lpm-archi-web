@@ -29,9 +29,9 @@ const projects=[
  {city:"Launac",slug:"launac",image:"/projets/launac/couverture.png",detail:"Haute-Garonne · Maison individuelle"},
 ];
 
-function Reveal({children,className}:{children:React.ReactNode;className?:string}){
+function Reveal({children,className,immediate=false}:{children:React.ReactNode;className?:string;immediate?:boolean}){
  const reduced=useReducedMotion();
- return <motion.div className={className} initial={reduced?false:{opacity:0,y:26}} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:.15}} transition={{duration:.8,ease:[.22,1,.36,1]}}>{children}</motion.div>;
+ return <motion.div className={className} initial={reduced||immediate?false:{opacity:0,y:26}} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:.15}} transition={{duration:.8,ease:[.22,1,.36,1]}}>{children}</motion.div>;
 }
 
 export default function ConstructionExperience({standalone=false}:{standalone?:boolean}){
@@ -44,7 +44,7 @@ export default function ConstructionExperience({standalone=false}:{standalone?:b
    <section id="construction" className={`${styles.intro} ${standalone?styles.standalone:""}`} aria-labelledby="construction-heading">
      <div className={styles.topline}><span>LA CONSTRUCTION, AUTREMENT</span><span>GRENADE / HAUTE-GARONNE</span></div>
      <div className={styles.introGrid}>
-       <Reveal className={styles.introCopy}>
+       <Reveal className={styles.introCopy} immediate={standalone}>
          <p className={styles.eyebrow}>LPM · LOÏC PETIT · MAÎTRE D’ŒUVRE</p>
          <Heading id="construction-heading" className={styles.heading}>Construction de<br/>maison individuelle.<br/><em>Votre signature.</em></Heading>
          <p className={styles.location}>À Grenade et en Haute-Garonne</p>
@@ -86,7 +86,17 @@ export default function ConstructionExperience({standalone=false}:{standalone?:b
       <div className={styles.projectGrid}>{projects.map((item,index)=><Reveal key={item.slug} className={index===1?styles.projectOffset:undefined}>
        <Link href={`/projets/${item.slug}`} className={styles.projectCard}><div className={styles.projectImage}><Image src={item.image} alt={`Projet de maison individuelle présenté par LPM à ${item.city}`} fill sizes="(max-width: 700px) 90vw, 30vw"/><span className={styles.projectIndex}>0{index+1} / 03</span><span className={styles.projectArrow}><ArrowUpRight size={23} strokeWidth={1}/></span></div><div className={styles.projectCaption}><h3>{item.city}</h3><span>{item.detail}</span></div></Link>
       </Reveal>)}</div>
-      <p className={styles.projectNote}>Photographies et vues de conception présentées dans les fiches projets.</p>
+      <p className={styles.projectNote}>Plans, vues de conception et autres visuels à découvrir dans les fiches projets.</p>
+    </section>
+
+    <section className={styles.resources} aria-labelledby="preparer-construction">
+      <div><p className={styles.eyebrow}>LES BONNES QUESTIONS, DÈS LE DÉPART</p><h2 id="preparer-construction">Préparons<br/><em>votre premier échange.</em></h2></div>
+      <div className={styles.resourceContent}>
+        <details><summary>Que préparer pour notre premier rendez-vous ?</summary><p>La commune du projet, les documents de votre terrain si vous en disposez, vos besoins et votre enveloppe financière. Une première idée suffit pour commencer à identifier les étapes à préparer.</p></details>
+        <details><summary>Comment sont définis les honoraires et le budget ?</summary><p>Ma proposition précise les honoraires, les prestations incluses et les limites de la mission. Le coût des travaux se précise avec les études et les devis ; les modifications sont examinées pour leur effet sur le budget et le calendrier.</p></details>
+        <details><summary>Comment se déroule le suivi du chantier ?</summary><p>Je coordonne les intervenants et suis l’avancement selon la mission convenue. Les échanges, les décisions et les visites sont organisés en tenant compte des étapes des travaux et des règles de sécurité.</p></details>
+        <nav className={styles.resourceLinks} aria-label="Guides pour préparer votre construction"><Link href="/guides/etapes-construction-maison-individuelle">Les étapes de votre construction <ArrowUpRight size={15}/></Link><Link href="/guides/maitre-oeuvre-architecte-constructeur">Comprendre les missions et les contrats <ArrowUpRight size={15}/></Link><Link href="/guides/norme-re2020-construction-maison">Préparer une maison RE2020 <ArrowUpRight size={15}/></Link></nav>
+      </div>
     </section>
 
     <section id="projet-construction" className={styles.contact} aria-labelledby="construction-contact-heading"><Reveal>

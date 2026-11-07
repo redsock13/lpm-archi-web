@@ -10,14 +10,9 @@
  * Le logo LPM en haut à gauche est géré par Header.tsx (fixed, z-50).
  */
 
-import dynamic from "next/dynamic";
+import InteractiveHero from "./InteractiveHero";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
-
-const InteractiveHero = dynamic(
-  () => import("./InteractiveHero"),
-  { ssr: false, loading: () => null }
-);
 
 const MARQUEE =
   "\u00A0\u00A0·\u00A0\u00A0MAÎTRE D'ŒUVRE\u00A0\u00A0·\u00A0\u00A0LPM\u00A0\u00A0·\u00A0\u00A0CONSTRUCTION HAUT DE GAMME\u00A0\u00A0·\u00A0\u00A0SUD-OUEST · AGEN · TOULOUSE\u00A0\u00A0·\u00A0\u00A0EXPÉRIENCE DEPUIS 2015\u00A0\u00A0";
@@ -26,7 +21,7 @@ interface Props { isReady: boolean }
 
 // ── Variants Framer ────────────────────────────────────────────────────────
 const fadeUp = (delay: number) => ({
-  initial:    { opacity: 0, y: 22 },
+  initial:    false as const,
   animate:    { opacity: 1, y: 0  },
   transition: { duration: 1.1, delay, ease: [0.25, 0.46, 0.45, 0.94] as const },
 });
@@ -53,7 +48,7 @@ export default function HeroSection({ isReady }: Props) {
         </h1>
 
         {/* Eyebrow */}
-        {isReady && (
+        {(
           <motion.p
             {...fadeUp(0.3)}
             className="mb-6 md:mb-8 text-[#D4AF37] tracking-[0.55em] uppercase font-light"
@@ -68,7 +63,7 @@ export default function HeroSection({ isReady }: Props) {
         )}
 
         {/* Positionnement + zone d'intervention — lisible dès le premier écran mobile */}
-        {isReady && (
+        {(
           <motion.p
             {...fadeUp(0.42)}
             className="mb-5 md:mb-7 text-[#F5F0E8]/75 uppercase"
@@ -84,7 +79,7 @@ export default function HeroSection({ isReady }: Props) {
         )}
 
         {/* Phrase monumentale — visuelle uniquement (aria-hidden) */}
-        {isReady && (
+        {(
           <motion.div
             {...fadeUp(0.55)}
             aria-hidden="true"
@@ -114,7 +109,7 @@ export default function HeroSection({ isReady }: Props) {
         )}
 
         {/* Séparateur */}
-        {isReady && (
+        {(
           <motion.div
             initial={{ scaleX: 0, opacity: 0 }}
             animate={{ scaleX: 1, opacity: 1 }}
@@ -132,7 +127,7 @@ export default function HeroSection({ isReady }: Props) {
         )}
 
         {/* CTAs */}
-        {isReady && (
+        {(
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0  }}
@@ -161,7 +156,7 @@ export default function HeroSection({ isReady }: Props) {
       </div>
 
       {/* ── Scroll indicator ─────────────────────────────────────────── */}
-      {isReady && (
+      {(
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -205,7 +200,7 @@ export default function HeroSection({ isReady }: Props) {
       </div>
 
       {/* ── Ligne or bas ─────────────────────────────────────────────── */}
-      {isReady && (
+      {(
         <motion.div
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}

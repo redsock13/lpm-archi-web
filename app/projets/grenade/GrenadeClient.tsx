@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
 import ProjectGallery from "@/components/ProjectGallery";
+import ProjectNarrative from "@/components/ProjectNarrative";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // ─── Data ────────────────────────────────────────────────────────────────────
@@ -167,7 +168,7 @@ export default function GrenadePage() {
             <strong className="text-[#F5F0E8] font-medium">Grenade-sur-Garonne</strong>, au nord
             de Toulouse. Il est réalisé sur le{" "}
             <strong className="text-[#F5F0E8] font-medium">lot n° 1</strong> (parcelle cadastrale
-            F3340, division de la parcelle 2967), d'une contenance de{" "}
+            F3340, division de la parcelle 2967), d’une contenance de{" "}
             <strong className="text-[#F5F0E8] font-medium">442 m²</strong>,{" "}
             rue des Églantiers.
           </p>
@@ -285,6 +286,8 @@ export default function GrenadePage() {
           ))}
         </div>
       </section>
+
+      <ProjectNarrative project="grenade" />
 
       {/* ── Footer CTA ──────────────────────────────────────────────────── */}
       <div

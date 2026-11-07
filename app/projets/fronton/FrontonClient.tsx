@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
 import ProjectGallery from "@/components/ProjectGallery";
+import ProjectNarrative from "@/components/ProjectNarrative";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // ─── Data ────────────────────────────────────────────────────────────────────
@@ -174,10 +175,10 @@ export default function FrontonPage() {
             Situation
           </h2>
           <p className="text-[#F5F0E8]/80 text-sm font-light leading-[1.9]">
-            Le terrain, d'une superficie de{" "}
+            Le terrain, d’une superficie de{" "}
             <strong className="text-[#F5F0E8] font-medium">723 m²</strong>, est situé{" "}
             <strong className="text-[#F5F0E8] font-medium">chemin du Moulin, 31620 Fronton</strong>.
-            Le terrain est viabilisé — réseaux d'eau potable, d'électricité et de
+            Le terrain est viabilisé — réseaux d’eau potable, d’électricité et de
             télécommunications disponibles, ainsi que les eaux pluviales. Les eaux usées seront
             traitées par une{" "}
             <strong className="text-[#F5F0E8] font-medium">microstation</strong> installée dans la
@@ -338,7 +339,7 @@ export default function FrontonPage() {
             Espace vert
           </h2>
           <p className="text-[#F5F0E8]/80 text-sm font-light leading-[1.9]">
-            L'espace vert restant représente{" "}
+            L’espace vert restant représente{" "}
             <strong className="text-[#F5F0E8] font-medium">413 m² — 57 %</strong> de la parcelle.
             Aucun arbre ne sera abattu et{" "}
             <strong className="text-[#F5F0E8] font-medium">trois nouveaux arbres</strong> seront
@@ -346,6 +347,8 @@ export default function FrontonPage() {
           </p>
         </div>
       </section>
+
+      <ProjectNarrative project="fronton" />
 
       {/* ── Footer CTA ──────────────────────────────────────────────────── */}
       <div

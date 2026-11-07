@@ -45,12 +45,13 @@ export default function Footer() {
               src="/lpm-logo.png"
               alt="LPM — Maître d'œuvre Haute-Garonne, construction maison sur mesure"
               width={80}
-              height={40}
+              height={49}
+              sizes="59px"
               className="h-9 w-auto object-contain mb-6 opacity-80"
             />
             <p className="text-[#8A8A8A] text-xs leading-[2] font-light max-w-xs">
               Loïc Petit — Maître d&apos;Œuvre en Haute-Garonne. Construction
-              de maison individuelle sur-mesure, norme RE2020, coûts maîtrisés.
+              de maison individuelle sur mesure : conception, coordination et suivi de chantier.
             </p>
             <div className="mt-5 flex flex-col gap-2">
               <a href="tel:+33782922112"
@@ -80,9 +81,9 @@ export default function Footer() {
           {/* Links */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h4 className="text-[#F5F0E8]/40 text-[9px] tracking-[0.4em] uppercase font-light mb-6">
+              <h3 className="text-[#F5F0E8]/40 text-[9px] tracking-[0.4em] uppercase font-light mb-6">
                 {category}
-              </h4>
+              </h3>
               <ul className="flex flex-col gap-3">
                 {links.map(({ label, href }) => (
                   <li key={label}>
@@ -100,9 +101,9 @@ export default function Footer() {
 
           {/* Légal */}
           <div>
-            <h4 className="text-[#F5F0E8]/40 text-[9px] tracking-[0.4em] uppercase font-light mb-6">
+            <h3 className="text-[#F5F0E8]/40 text-[9px] tracking-[0.4em] uppercase font-light mb-6">
               Légal
-            </h4>
+            </h3>
             <ul className="flex flex-col gap-3">
               {legalNav.map(({ label, href }) => (
                 <li key={label}>

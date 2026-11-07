@@ -24,15 +24,17 @@ const guides = [
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
-    { url: BASE_URL, changeFrequency: "weekly", priority: 1 },
-    { url: `${BASE_URL}/construction-maison-individuelle`, changeFrequency: "monthly", priority: 0.9 },
+    { url: BASE_URL, lastModified: "2026-11-07", changeFrequency: "weekly", priority: 1 },
+    { url: `${BASE_URL}/construction-maison-individuelle`, lastModified: "2026-11-07", changeFrequency: "monthly", priority: 0.9 },
     ...guides.map((slug) => ({
       url: `${BASE_URL}/guides/${slug}`,
+      lastModified: "2026-11-07",
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),
     ...projects.map((slug) => ({
       url: `${BASE_URL}/projets/${slug}`,
+      ...(["grenade", "fronton", "launac"].includes(slug) ? { lastModified: "2026-11-07" } : {}),
       changeFrequency: "monthly" as const,
       priority: 0.6,
     })),

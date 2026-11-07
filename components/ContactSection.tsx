@@ -137,7 +137,7 @@ export default function ContactSection() {
 
             <p className="contact-reveal mt-8 text-[#8A8A8A] text-sm leading-[1.9] font-light max-w-sm">
               Chaque maison naît d&apos;une conversation. Décrivez-nous votre
-              projet — Loïc Petit vous répondra personnellement sous 48h.
+              projet — je reviendrai vers vous pour en discuter.
             </p>
 
             {/* Coordonnées officielles */}
@@ -192,8 +192,8 @@ export default function ContactSection() {
             {/* Signature */}
             <div className="contact-reveal mt-16 pl-6 border-l border-[#C9A84C]/30">
               <p className="text-[#F5F0E8]/40 text-sm italic font-light leading-relaxed">
-                &ldquo;La confiance n&apos;exclut pas le contrôle — c&apos;est pourquoi
-                vous aurez un accès libre à votre chantier à tout moment.&rdquo;
+                  &ldquo;Un chantier se suit avec attention. J’organise les échanges
+                  et les visites avec les intervenants, dans le respect des règles de sécurité.&rdquo;
               </p>
               <p
                 className="text-[#D4AF37]/70 mt-3 text-base"
@@ -236,8 +236,7 @@ export default function ContactSection() {
                   <p className="text-[#8A8A8A] text-sm font-light leading-[1.9] max-w-xs">
                     Votre projet a été transmis avec succès.{" "}
                     <strong className="text-[#F5F0E8]/70 font-medium">Loïc Petit</strong>{" "}
-                    reviendra vers vous sous{" "}
-                    <strong className="text-[#D4AF37] font-medium">48h</strong>.
+                    reviendra vers vous pour échanger sur votre maison.
                   </p>
 
                   <div className="mt-8 flex items-center gap-3 text-[#D4AF37]/50 text-[9px] tracking-[0.3em] uppercase font-light">
@@ -406,7 +405,7 @@ export default function ContactSection() {
                   {/* Submit */}
                   <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-2">
                     <p className="text-[#8A8A8A]/40 text-[10px] font-light tracking-[0.2em] uppercase">
-                      Réponse garantie sous 48h
+                      Échange direct avec Loïc Petit
                     </p>
 
                     <button

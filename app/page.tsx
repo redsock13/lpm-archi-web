@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import Header            from "@/components/Header";
 import HeroSection       from "@/components/HeroSection";
 import ExpertiseSection  from "@/components/ExpertiseSection";
@@ -17,10 +17,11 @@ import ConstructionExperience from "@/components/ConstructionExperience";
 
 export default function Home() {
   const [ready, setReady] = useState(false);
+  const completeIntro = useCallback(() => setReady(true), []);
 
   return (
     <>
-      {!ready && <Preloader onComplete={() => setReady(true)} />}
+      {!ready && <Preloader onComplete={completeIntro} />}
 
       <main>
         <Header />
