@@ -49,7 +49,7 @@ export default function HeroSection({ isReady }: Props) {
       >
         {/* H1 sémantique pour Google — visuellement masqué, lu par les crawlers */}
         <h1 className="sr-only">
-          LPM : Maître d&apos;œuvre en construction de maisons individuelles sur-mesure en Haute-Garonne
+          Construction de maison individuelle sur mesure en Haute-Garonne — LPM, maître d&apos;œuvre à Grenade
         </h1>
 
         {/* Eyebrow */}
@@ -79,7 +79,7 @@ export default function HeroSection({ isReady }: Props) {
               fontWeight: 400,
             }}
           >
-            Construction Haut de Gamme · Haute-Garonne &amp; Tarn-et-Garonne
+            Grenade · Haute-Garonne &amp; Tarn-et-Garonne
           </motion.p>
         )}
 
@@ -99,9 +99,9 @@ export default function HeroSection({ isReady }: Props) {
               maxWidth: "22ch",
             }}
           >
-            Conception de Maison<br />
+            Construction de<br />
             <span style={{ fontWeight: 300, fontStyle: "italic" }}>
-              &amp; Maîtrise d&apos;Œuvre
+              Maison Individuelle
             </span>
             <br />
             <span

@@ -25,6 +25,7 @@ const guides = [
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: BASE_URL, changeFrequency: "weekly", priority: 1 },
+    { url: `${BASE_URL}/construction-maison-individuelle`, changeFrequency: "monthly", priority: 0.9 },
     ...guides.map((slug) => ({
       url: `${BASE_URL}/guides/${slug}`,
       changeFrequency: "monthly" as const,

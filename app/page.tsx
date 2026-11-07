@@ -13,6 +13,7 @@ import BlogSection     from "@/components/BlogSection";
 import ContactSection  from "@/components/ContactSection";
 import Footer          from "@/components/Footer";
 import Preloader       from "@/components/Preloader";
+import ConstructionExperience from "@/components/ConstructionExperience";
 
 export default function Home() {
   const [ready, setReady] = useState(false);
@@ -26,6 +27,8 @@ export default function Home() {
 
         {/* 1. Première impression */}
         <HeroSection isReady={ready} />
+
+        <ConstructionExperience />
 
         {/* 2. Notre expertise */}
         <ExpertiseSection />
