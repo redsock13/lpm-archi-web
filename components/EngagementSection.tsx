@@ -1,5 +1,7 @@
 "use client";
 
+import useSectionEffects from "./useSectionEffects";
+
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -19,6 +21,7 @@ const paragraphs: Para[] = [
 
 export default function EngagementSection() {
   const sectionRef   = useRef<HTMLElement>(null);
+  const effectsReady = useSectionEffects(sectionRef);
   const headingRef   = useRef<HTMLDivElement>(null);
   const btnRef       = useRef<HTMLButtonElement>(null);
   const modalRef     = useRef<HTMLDivElement>(null);
@@ -28,10 +31,11 @@ export default function EngagementSection() {
 
   // ── Heading scroll reveal ────────────────────────────────────────────────
   useEffect(() => {
+    if (!effectsReady) return;
     gsap.registerPlugin(ScrollTrigger);
 
     // Modal starts off-screen (no layout impact)
-    gsap.set(modalRef.current, { yPercent: 100 });
+    gsap.set(modalRef.current, { y: 0, yPercent: 100 });
 
     const ctx = gsap.context(() => {
       gsap.fromTo(
@@ -52,7 +56,7 @@ export default function EngagementSection() {
     }, sectionRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [effectsReady]);
 
   // ── Open modal — POSITION FIXED, hors du flux ────────────────────────────
   function openModal() {
@@ -64,7 +68,7 @@ export default function EngagementSection() {
     document.body.style.overflow = "hidden";
 
     // Slide up from bottom
-    gsap.to(modal, { yPercent: 0, duration: 0.65, ease: "power4.out" });
+    gsap.to(modal, { y: 0, yPercent: 0, duration: 0.65, ease: "power4.out" });
 
     // Stagger paragraphs
     const paras = inner.querySelectorAll(".engage-para");
@@ -155,7 +159,7 @@ export default function EngagementSection() {
       <div
         ref={modalRef}
         className="fixed inset-0 z-[9998] bg-[#000000] flex flex-col"
-        style={{ willChange: "transform" }}
+        style={{ willChange: "transform", transform: "translateY(100%)" }}
         aria-modal="true"
         role="dialog"
         aria-label="L'Engagement LPM — Notre philosophie"

@@ -1,5 +1,7 @@
 "use client";
 
+import useSectionEffects from "./useSectionEffects";
+
 import { useRef, useEffect } from "react";
 import Link from "next/link";
 import gsap from "gsap";
@@ -11,7 +13,7 @@ const articles = [
     category: "Choisir son interlocuteur",
     title: "Maître d'œuvre, architecte ou constructeur : lequel choisir ?",
     excerpt:
-      "CMI, architecte DPLG ou maître d'œuvre : différences, missions et garanties de chaque professionnel pour faire le bon choix selon votre projet.",
+      "Constructeur, architecte ou maître d’œuvre : comparer les missions, les contrats et les prestations pour préparer votre projet.",
     readTime: "8 min",
     tag: "Maîtrise d'œuvre · Architecte · Constructeur",
     href: "/guides/maitre-oeuvre-architecte-constructeur",
@@ -31,7 +33,7 @@ const articles = [
     category: "Réglementation",
     title: "Comprendre la norme RE2020 pour votre futur projet.",
     excerpt:
-      "Qu'est-ce que la RE2020 impose concrètement ? Isolation, systèmes de chauffage, matériaux biosourcés — comment LPM intègre ces exigences sans surcoût excessif.",
+      "Besoins énergétiques, confort d’été, matériaux et ventilation : les décisions à étudier dès la conception de votre maison.",
     readTime: "5 min",
     tag: "RE2020 · Norme · Énergie",
     href: "/guides/norme-re2020-construction-maison",
@@ -40,6 +42,7 @@ const articles = [
 
 export default function BlogSection() {
   const sectionRef   = useRef<HTMLElement>(null);
+  const effectsReady = useSectionEffects(sectionRef);
   const headingRef   = useRef<HTMLDivElement>(null);
   const pinnedRef    = useRef<HTMLDivElement>(null);
   const trackRef     = useRef<HTMLDivElement>(null);
@@ -48,6 +51,7 @@ export default function BlogSection() {
   const progressFill = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!effectsReady) return;
     gsap.registerPlugin(ScrollTrigger);
 
     // FOUC
@@ -163,7 +167,7 @@ export default function BlogSection() {
       window.clearTimeout(refreshTimer);
       ctx.revert();
     };
-  }, []);
+  }, [effectsReady]);
 
   return (
     <section

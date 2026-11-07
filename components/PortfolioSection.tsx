@@ -1,5 +1,7 @@
 "use client";
 
+import useSectionEffects from "./useSectionEffects";
+
 /**
  * PortfolioSection — Film Strip horizontal (mobile + desktop)
  *
@@ -61,6 +63,7 @@ const projects = [
 
 export default function PortfolioSection() {
   const sectionRef   = useRef<HTMLElement>(null);
+  const effectsReady = useSectionEffects(sectionRef);
   const headingRef   = useRef<HTMLDivElement>(null);
   const pinnedRef    = useRef<HTMLDivElement>(null);
   const trackRef     = useRef<HTMLDivElement>(null);
@@ -69,6 +72,7 @@ export default function PortfolioSection() {
   const progressFill = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!effectsReady) return;
     gsap.registerPlugin(ScrollTrigger);
 
     // ── Fix FOUC : figer l'opacité initiale des cartes avant animation ───────
@@ -251,7 +255,7 @@ export default function PortfolioSection() {
       ctx.revert();
       touchCleanups.forEach((fn) => fn());
     };
-  }, []);
+  }, [effectsReady]);
 
   return (
     <section

@@ -4,7 +4,7 @@ const projects = {
   grenade: {
     title: "À Grenade, une maison de plain-pied et ses espaces extérieurs",
     programme: "Le programme présenté réunit 91,41 m² habitables, trois chambres et une pièce de vie de 42,18 m². Le garage accolé de 24,12 m² et la terrasse de 35,50 m² complètent la maison sur une parcelle de 442 m².",
-    detail: "Le plan distingue la pièce de vie des chambres, avec un dressing et les circulations qui les relient. Les vues de conception montrent une toiture à quatre pans et des menuiseries anthracite. Les tableaux ci-dessous permettent de lire le détail des pièces et des surfaces.",
+    detail: "Le plan distingue la pièce de vie des chambres, avec un dressing et les circulations qui les relient. Les vues de conception montrent une toiture à quatre pans et des menuiseries anthracite. Les tableaux de cette fiche permettent de lire le détail des pièces et des surfaces.",
     focus: "Distribution de plain-pied · Garage accolé · Terrasse",
   },
   fronton: {

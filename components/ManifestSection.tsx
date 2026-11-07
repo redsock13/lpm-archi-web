@@ -1,5 +1,7 @@
 "use client";
 
+import useSectionEffects from "./useSectionEffects";
+
 /**
  * ManifestSection — Médaillon centré, design minimaliste luxueux
  *
@@ -16,6 +18,7 @@ const SERIF = 'var(--font-sora), system-ui, sans-serif';
 
 export default function ManifestSection() {
   const sectionRef   = useRef<HTMLElement>(null);
+  const effectsReady = useSectionEffects(sectionRef);
   const medallionRef = useRef<HTMLDivElement>(null);
   const auraRef      = useRef<HTMLDivElement>(null);
   const revealRefs   = useRef<(HTMLElement | null)[]>([]);
@@ -25,6 +28,7 @@ export default function ManifestSection() {
   };
 
   useEffect(() => {
+    if (!effectsReady) return;
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
@@ -87,7 +91,7 @@ export default function ManifestSection() {
     }, sectionRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [effectsReady]);
 
   return (
     <section
