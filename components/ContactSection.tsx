@@ -1,5 +1,7 @@
 "use client";
 
+import useSectionEffects from "./useSectionEffects";
+
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
@@ -39,6 +41,7 @@ const borderInactive = "border-[#1c1c1c] hover:border-[#2a2a2a]";
 
 export default function ContactSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const effectsReady = useSectionEffects(sectionRef);
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -56,6 +59,7 @@ export default function ContactSection() {
 
   // ── Scroll reveal ───────────────────────────────────────────────────────
   useEffect(() => {
+    if (!effectsReady) return;
     gsap.registerPlugin(ScrollTrigger);
     const ctx = gsap.context(() => {
       gsap.fromTo(
@@ -68,7 +72,7 @@ export default function ContactSection() {
       );
     }, sectionRef);
     return () => ctx.revert();
-  }, []);
+  }, [effectsReady]);
 
   // ── Handlers ────────────────────────────────────────────────────────────
   const handleChange = (

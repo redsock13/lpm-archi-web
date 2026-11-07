@@ -1,5 +1,7 @@
 "use client";
 
+import useSectionEffects from "./useSectionEffects";
+
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -39,6 +41,7 @@ const STEPS = [
 
 export default function ProcessusSection() {
   const sectionRef   = useRef<HTMLElement>(null);
+  const effectsReady = useSectionEffects(sectionRef);
   const headingRef   = useRef<HTMLDivElement>(null);
   const pinnedRef    = useRef<HTMLDivElement>(null);
   const trackRef     = useRef<HTMLDivElement>(null);
@@ -53,6 +56,7 @@ export default function ProcessusSection() {
   const subLine2    = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
+    if (!effectsReady) return;
     gsap.registerPlugin(ScrollTrigger);
 
     // FOUC prevention — cards start dark before GSAP runs
@@ -152,7 +156,7 @@ export default function ProcessusSection() {
       window.clearTimeout(refreshTimer);
       ctx.revert();
     };
-  }, []);
+  }, [effectsReady]);
 
   return (
     <section
@@ -221,13 +225,13 @@ export default function ProcessusSection() {
             ref={subLine1}
             style={{ display: "block", clipPath: "inset(0 0 100% 0)" }}
           >
-            Quatre étapes éprouvées, un seul objectif :
+            Quatre étapes pour concevoir votre maison
           </span>
           <span
             ref={subLine2}
             style={{ display: "block", clipPath: "inset(0 0 100% 0)" }}
           >
-            votre maison livrée à la perfection.
+            et organiser son suivi avec vous.
           </span>
         </p>
       </div>

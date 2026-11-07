@@ -1,5 +1,7 @@
 "use client";
 
+import useSectionEffects from "./useSectionEffects";
+
 /**
  * ChantierSection — Mural Draggable "Vie de Chantier"
  *
@@ -127,6 +129,7 @@ function buildLayout(images: string[]): Layout {
 
 export default function ChantierSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const effectsReady = useSectionEffects(sectionRef);
   const headingRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const wallRef    = useRef<HTMLDivElement>(null);
@@ -135,12 +138,14 @@ export default function ChantierSection() {
 
   // Shuffle + layout (client uniquement → pas d'hydration mismatch)
   useEffect(() => {
-    setLayout(buildLayout(shuffle(ALL_IMAGES).slice(0, N_PHOTOS)));
-  }, []);
+    if (!effectsReady) return;
+    const frame = requestAnimationFrame(() => setLayout(buildLayout(shuffle(ALL_IMAGES).slice(0, N_PHOTOS))));
+    return () => cancelAnimationFrame(frame);
+  }, [effectsReady]);
 
   // GSAP : heading + intro + Draggable (déclenché après le layout)
   useEffect(() => {
-    if (!layout) return;
+    if (!layout || !effectsReady) return;
 
     gsap.registerPlugin(ScrollTrigger, Draggable, InertiaPlugin);
 
@@ -194,7 +199,7 @@ export default function ChantierSection() {
       drag.kill();
       window.removeEventListener("resize", onResize);
     };
-  }, [layout]);
+  }, [layout, effectsReady]);
 
   return (
     <section

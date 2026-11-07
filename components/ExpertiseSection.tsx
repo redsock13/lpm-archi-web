@@ -1,5 +1,7 @@
 "use client";
 
+import useSectionEffects from "./useSectionEffects";
+
 import { useEffect, useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import gsap from "gsap";
@@ -74,6 +76,7 @@ function MagneticContent({ children }: { children: React.ReactNode }) {
 
 export default function ExpertiseSection() {
   const sectionRef   = useRef<HTMLElement>(null);
+  const effectsReady = useSectionEffects(sectionRef);
   const headingRef   = useRef<HTMLDivElement>(null);
   const pinnedRef    = useRef<HTMLDivElement>(null);
   const trackRef     = useRef<HTMLDivElement>(null);
@@ -82,6 +85,7 @@ export default function ExpertiseSection() {
   const progressFill = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!effectsReady) return;
     gsap.registerPlugin(ScrollTrigger);
 
     // FOUC — cartes sombres + grayscale avant animation
@@ -199,7 +203,7 @@ export default function ExpertiseSection() {
       window.clearTimeout(refreshTimer);
       ctx.revert();
     };
-  }, []);
+  }, [effectsReady]);
 
   return (
     <section
