@@ -35,6 +35,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  verification: { google: "OGEm24o3PUDfTWq-0dxOu6gcV27ACpkzORsnlg75kHo" },
   metadataBase: new URL("https://www.lpmoe.com"),
   title: "Maître d’œuvre à Grenade et en Haute-Garonne | LPM",
   description:
