@@ -33,7 +33,7 @@ const STEPS = [
     title: "Sérénité",
     subtitle: "Livraison & Clés",
     description:
-      "Réception des travaux, levée des réserves, remise des clés. Votre maison est livrée parfaite. Notre engagement ne s'arrête pas à la livraison.",
+      "Je vous assiste à la réception des travaux et au suivi des éventuelles réserves, dans le cadre de ma mission. Les étapes et les documents de fin de chantier sont préparés avec les intervenants.",
   },
 ] as const;
 

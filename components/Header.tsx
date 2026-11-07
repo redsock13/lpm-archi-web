@@ -38,6 +38,7 @@ export default function Header() {
           alt="LPM"
           width={637}
           height={391}
+          sizes="(max-width: 767px) 90px, 102px"
           className="w-[90px] md:w-[102px] h-auto object-contain"
           style={{ filter: "brightness(0) invert(1)" }}
           priority

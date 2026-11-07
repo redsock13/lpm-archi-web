@@ -132,9 +132,8 @@ export default function ManifestSection() {
                 src="/loicpetit2.jpg"
                 alt="Loïc Petit, Maître d'Œuvre LPM"
                 fill
-                sizes="840px"
+                sizes="(max-width: 450px) 90vw, (max-width: 1235px) 68vw, 840px"
                 className="object-cover object-center"
-                priority
               />
             </div>
           </div>

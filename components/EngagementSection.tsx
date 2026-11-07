@@ -8,51 +8,13 @@ type Chunk = { text: string; bold?: boolean; gold?: boolean };
 type Para  = Chunk[];
 
 const paragraphs: Para[] = [
-  [
-    { text: "Envie de réaliser votre " },
-    { text: "rêve de construction", bold: true, gold: true },
-    { text: " et d'accès à la propriété, mais les coûts actuels vous en empêchent ?" },
-  ],
-  [
-    { text: "LPM prend en charge votre réalisation " },
-    { text: "du début à la fin", bold: true },
-    { text: " avec des coûts " },
-    { text: "maîtrisés", bold: true, gold: true },
-    { text: ", tout en garantissant une qualité irréprochable — plain-pied ou à étage, traditionnelle ou contemporaine. Toutes nos réalisations respectent la norme " },
-    { text: "RE2020", bold: true, gold: true },
-    { text: "." },
-  ],
-  [
-    { text: "Notre " },
-    { text: "réseau d'artisans qualifiés", bold: true },
-    { text: " et d'entreprises du BTP nous garantit une réponse précise à vos attentes. Pour rester " },
-    { text: "disponible, performant et réactif", bold: true, gold: true },
-    { text: ", LPM se limite volontairement à " },
-    { text: "10 à 12 maisons par an", bold: true },
-    { text: "." },
-  ],
-  [
-    { text: "En moyenne, nos délais de livraison sont de " },
-    { text: "10 mois", bold: true, gold: true },
-    { text: ". La confiance que nous accordons à nos collaborateurs ne dispense pas du contrôle — c'est pourquoi LPM vous offre un " },
-    { text: "accès libre à votre chantier", bold: true },
-    { text: " pour suivre l'évolution de votre projet en temps réel." },
-  ],
-  [
-    { text: "Nous pouvons également effectuer la " },
-    { text: "recherche de terrain", bold: true, gold: true },
-    { text: " selon vos critères, grâce à notre collaboration avec les partenaires immobiliers de la région." },
-  ],
-  [
-    { text: "Vous avez déjà votre terrain ? Parfait. LPM conçoit votre " },
-    { text: "projet sur-mesure", bold: true, gold: true },
-    { text: " selon votre mode de vie, pour que chaque espace vous ressemble." },
-  ],
-  [
-    { text: "Un rendez-vous, une prise de contact directe — " },
-    { text: "n'hésitez pas à nous écrire", bold: true },
-    { text: " pour discuter de votre projet à venir." },
-  ],
+  [{ text: "Votre maison commence par " }, { text: "une écoute attentive", bold: true, gold: true }, { text: " de vos besoins, de votre terrain et de votre budget." }],
+  [{ text: "Je conçois avec vous un " }, { text: "projet sur mesure", bold: true }, { text: ", de plain-pied ou à étage. Les études et les choix techniques sont coordonnés avec les intervenants spécialisés, notamment pour la RE2020." }],
+  [{ text: "Je m’appuie sur mon " }, { text: "réseau d’artisans partenaires", bold: true, gold: true }, { text: " pour coordonner les corps de métier. Le suivi du planning, des devis et des décisions s’inscrit dans la mission définie ensemble." }],
+  [{ text: "Le budget guide les choix dès la conception. Les estimations se précisent avec les études et les devis ; les changements sont examinés pour leur effet sur le " }, { text: "coût et le calendrier", bold: true, gold: true }, { text: "." }],
+  [{ text: "Les prestations, les honoraires et les limites de mon accompagnement sont précisés dans " }, { text: "la proposition et le contrat", bold: true }, { text: ". Les assurances et qualifications des intervenants se vérifient pour les activités concernées." }],
+  [{ text: "Je vous accompagne jusqu’à " }, { text: "la réception des travaux", bold: true, gold: true }, { text: " et au suivi des éventuelles réserves selon ma mission. Les visites de chantier s’organisent avec les intervenants, dans le respect des règles de sécurité." }],
+  [{ text: "Vous avez un terrain ou une première idée ? " }, { text: "Parlons de votre maison", bold: true }, { text: " et des étapes à préparer." }],
 ];
 
 export default function EngagementSection() {

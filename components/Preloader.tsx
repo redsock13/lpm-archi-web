@@ -13,6 +13,7 @@
  */
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 
 interface PreloaderProps {
@@ -26,6 +27,11 @@ export default function Preloader({ onComplete }: PreloaderProps) {
   const lineRef      = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (window.matchMedia("(max-width: 767px), (prefers-reduced-motion: reduce)").matches) {
+      onComplete();
+      return;
+    }
+
     const tl = gsap.timeline({ defaults: { overwrite: "auto" } });
 
     // ── État initial ──────────────────────────────────────────────────────
@@ -90,7 +96,7 @@ export default function Preloader({ onComplete }: PreloaderProps) {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-[9995] bg-[#000000] flex flex-col items-center justify-center"
+      className="fixed inset-0 z-[9995] bg-[#000000] hidden md:flex flex-col items-center justify-center"
       aria-hidden="true"
     >
       {/* Halo doré derrière le logo */}
@@ -110,10 +116,12 @@ export default function Preloader({ onComplete }: PreloaderProps) {
 
       {/* Logo LPM blanc */}
       <div ref={logoWrapRef} className="relative z-10 flex flex-col items-center gap-0">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src="/lpm-logo.png"
           alt=""
+          width={637}
+          height={391}
+          sizes="(max-width: 767px) 90px, (max-width: 1300px) 26vw, 340px"
           draggable={false}
           style={{
             width: "clamp(160px, 26vw, 340px)",

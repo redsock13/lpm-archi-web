@@ -14,7 +14,7 @@ const services = [
     icon: HardHat,
     title: "Gestion des travaux et permis de construire",
     description:
-      "Direction et supervision complète de vos chantiers. Nous garantissons la conformité technique, le respect des normes et la qualité d'exécution à chaque étape de la réalisation.",
+      "Je vous accompagne dans les démarches et le suivi des travaux. Les études, les contrôles et l’assistance à la réception sont définis selon la mission convenue.",
     number: "01",
     detail: "Direction de chantier · OPC · Réception des travaux",
     image: "/cadre01.webp",
@@ -24,7 +24,7 @@ const services = [
     icon: BarChart3,
     title: "Maître d'œuvre bâtiment et suivi de chantier",
     description:
-      "Coordination experte de tous les intervenants, optimisation des ressources et maîtrise rigoureuse des délais pour une livraison parfaite dans le respect du budget.",
+      "Je coordonne les corps de métier et suis l’avancement du chantier. Le planning, les devis et les modifications sont examinés avec vous pour éclairer les décisions.",
     number: "02",
     detail: "Planning · Budget · Coordination",
     image: "/cadre02.jpg",
@@ -32,13 +32,13 @@ const services = [
   },
   {
     icon: Lightbulb,
-    title: "Artisans qualifiés et garanties décennales",
+    title: "Artisans partenaires et missions définies",
     description:
-      "Réseau d'artisans certifiés RGE, couverture décennale complète. Nous sélectionnons et coordonnons les meilleurs professionnels pour chaque corps de métier.",
+      "Je m’appuie sur mon réseau d’artisans partenaires. Les qualifications et les assurances à vérifier dépendent des travaux et des missions de chaque intervenant.",
     number: "03",
     detail: "Audit · Faisabilité · Assistance à MOA",
     image: "/cadre03.jpg",
-    imageAlt: "Artisans qualifiés LPM — garantie décennale construction maison Haute-Garonne",
+    imageAlt: "Artisans partenaires et suivi de chantier LPM en Haute-Garonne",
   },
 ];
 
@@ -222,13 +222,13 @@ export default function ExpertiseSection() {
             style={{ fontFamily: "var(--font-playfair)" }}
           >
             Votre projet de construction de{" "}
-            <span className="italic font-light text-[#C9A84C]">maison clé en main</span>
+            <span className="italic font-light text-[#C9A84C]">maison sur mesure</span>
           </h2>
           <div className="mt-6 w-12 h-px bg-[#C9A84C]" />
         </div>
         <p className="hidden md:block text-[#8A8A8A] text-sm max-w-xs font-light leading-[1.8] md:text-right">
-          Trois piliers, une seule promesse : votre maison livrée parfaite,
-          dans les délais et le budget convenus.
+          Conception, coordination et suivi : une mission précisée,
+          des étapes partagées et un budget suivi avec vous.
         </p>
       </div>
 

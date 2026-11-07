@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
 import ProjectGallery from "@/components/ProjectGallery";
+import ProjectNarrative from "@/components/ProjectNarrative";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // ─── Data ────────────────────────────────────────────────────────────────────
@@ -166,7 +167,7 @@ export default function LaunacPage() {
             Situation
           </h2>
           <p className="text-[#F5F0E8]/80 text-sm font-light leading-[1.9]">
-            Le terrain, d'une superficie de{" "}
+            Le terrain, d’une superficie de{" "}
             <strong className="text-[#F5F0E8] font-medium">520 m²</strong>, est situé{" "}
             <strong className="text-[#F5F0E8] font-medium">route Saint-Cézet, 31330 Launac</strong>.
             Tous les réseaux (eau potable, électricité, télécommunications, assainissement
@@ -294,9 +295,11 @@ export default function LaunacPage() {
           Tous les réseaux (eau, électricité, télécommunications, assainissement et eaux pluviales)
           seront enfouis en tranchée sous le terrain vers les réseaux publics. Un{" "}
           <strong className="text-[#F5F0E8] font-medium">puisard de 3 m³</strong> sera créé dans
-          l'angle sud-ouest du terrain pour la récupération des eaux pluviales.
+          l’angle sud-ouest du terrain pour la récupération des eaux pluviales.
         </p>
       </section>
+
+      <ProjectNarrative project="launac" />
 
       {/* ── Footer CTA ──────────────────────────────────────────────────── */}
       <div

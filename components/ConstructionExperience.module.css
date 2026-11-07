@@ -79,6 +79,15 @@
 .projectCaption h3{font-family:var(--font-playfair),Georgia,serif;font-weight:400;font-size:29px}
 .projectCaption>span{font-size:7px;max-width:22ch;line-height:1.8;letter-spacing:.12em;text-transform:uppercase;color:#9a9179;text-align:right}
 .projectNote{max-width:1500px;margin:26px auto 0;font-size:8px;line-height:1.8;color:#9b9481}
+.resources{max-width:1500px;margin:auto;padding:90px max(6vw,24px);display:grid;grid-template-columns:1fr 1.2fr;gap:70px}
+.resources h2{font-family:var(--font-playfair),Georgia,serif;font-size:clamp(32px,3.5vw,51px);font-weight:400;line-height:1.15;margin:0}
+.resources h2 em{color:var(--gold);font-weight:400}
+.resourceContent details{border-top:1px solid #c9a84c30;padding:22px 0}
+.resourceContent summary{font-family:var(--font-playfair),Georgia,serif;font-size:21px;line-height:1.4;color:var(--cream);cursor:pointer}
+.resourceContent details p{font-size:12px;font-weight:300;line-height:2;color:var(--muted);margin:18px 0 0}
+.resourceLinks{display:flex;flex-direction:column;gap:18px;padding-top:25px;border-top:1px solid #c9a84c30}
+.resourceLinks a{display:flex;justify-content:space-between;align-items:center;gap:15px;font-size:11px;line-height:1.6;color:var(--gold)}
+@media(max-width:700px){.resources{grid-template-columns:1fr;gap:35px;padding:65px 24px}.resources h2{font-size:38px}}
 .contact{text-align:center;padding:120px 24px 110px;position:relative;background:radial-gradient(ellipse at center,#c9a84c0a,transparent 70%)}
 .contact h2{font-size:clamp(42px,6vw,86px)}
 .contact>div>p:not(.eyebrow){font-size:12px;line-height:2;color:var(--muted);font-weight:300}
