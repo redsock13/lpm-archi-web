@@ -8,6 +8,18 @@ export const metadata: Metadata = {
   alternates: { canonical: "/mentions-legales" },
 };
 
+/**
+ * Médiateur de la consommation (obligatoire : LPM travaille pour des particuliers).
+ * À compléter dès que l'adhésion est faite — la section « Médiation » s'affiche
+ * automatiquement quand `nom` est renseigné.
+ */
+const MEDIATEUR = null as { nom: string; adresse: string; site: string } | null;
+// Exemple :
+// const MEDIATEUR = { nom: "Nom du médiateur", adresse: "Adresse postale", site: "https://..." };
+
+const linkClass =
+  "text-[#D4AF37] hover:text-[#E8C97A] transition-colors duration-300 underline underline-offset-4 decoration-[#D4AF37]/30";
+
 const sections = [
   {
     number: "01",
@@ -21,7 +33,7 @@ const sections = [
           <p>
             <strong className="text-[#F5F0E8]/90 font-medium">Loïc Petit</strong> — Maître d&apos;œuvre (LPM)
           </p>
-          <p>LPM — SASU, société par actions simplifiée unipersonnelle</p>
+          <p>LPM — SASU (société par actions simplifiée unipersonnelle) au capital de 1 000 €</p>
           <p>Siège social : <span className="text-[#F5F0E8]/80">7 rue des Églantiers, 31330 Grenade, France</span></p>
           <p>
             Téléphone :{" "}
@@ -42,7 +54,16 @@ const sections = [
             </a>
           </p>
           <p className="text-[#8A8A8A]">
-            SIREN : <span className="text-[#F5F0E8]/80 tracking-widest">944 690 288</span>
+            RCS Toulouse : <span className="text-[#F5F0E8]/80 tracking-widest">944 690 288</span>
+          </p>
+          <p className="text-[#8A8A8A]">
+            SIRET (siège) : <span className="text-[#F5F0E8]/80 tracking-widest">944 690 288 00013</span>
+          </p>
+          <p className="text-[#8A8A8A]">
+            N° TVA intracommunautaire : <span className="text-[#F5F0E8]/80 tracking-widest">FR51944690288</span>
+          </p>
+          <p className="text-[#8A8A8A]">
+            Président : <span className="text-[#F5F0E8]/80">Loïc Petit</span>
           </p>
         </div>
       </div>
@@ -68,6 +89,7 @@ const sections = [
         </p>
         <p>440 N Barranca Ave #4133</p>
         <p>Covina, CA 91723 — États-Unis</p>
+        <p>Téléphone : +1 (559) 288-7060</p>
         <p>
           <a
             href="https://vercel.com"
@@ -102,15 +124,30 @@ const sections = [
       <p>
         Les informations recueillies via le formulaire de contact (nom, email, téléphone,
         ville) sont destinées exclusivement à LPM pour la gestion de votre projet de
-        construction. Elles ne sont jamais cédées à des tiers. Conformément à la loi
-        «&nbsp;Informatique et Libertés&nbsp;», vous pouvez exercer votre droit
-        d&apos;accès et de rectification aux données vous concernant en contactant :{" "}
+        construction. Elles ne sont jamais cédées à des tiers. Conformément au RGPD et à la
+        loi «&nbsp;Informatique et Libertés&nbsp;», vous disposez d&apos;un droit
+        d&apos;accès, de rectification, d&apos;effacement, de limitation et
+        d&apos;opposition sur les données vous concernant, que vous pouvez exercer en
+        contactant :{" "}
         <a
           href="mailto:contact@lpmoe.com"
           className="text-[#D4AF37] hover:text-[#E8C97A] transition-colors duration-300 underline underline-offset-4 decoration-[#D4AF37]/30"
         >
           contact@lpmoe.com
         </a>
+        . Vous pouvez également introduire une réclamation auprès de la{" "}
+        <a
+          href="https://www.cnil.fr"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={linkClass}
+        >
+          CNIL
+        </a>
+        . Pour en savoir plus, consultez notre{" "}
+        <Link href="/politique-de-confidentialite" className={linkClass}>
+          politique de confidentialité
+        </Link>
         .
       </p>
     ),
@@ -128,6 +165,42 @@ const sections = [
       </p>
     ),
   },
+  ...(MEDIATEUR
+    ? [
+        {
+          number: "07",
+          title: "Médiation de la consommation",
+          content: (
+            <div className="flex flex-col gap-3">
+              <p>
+                Conformément aux articles L.612-1 et suivants du Code de la consommation, en
+                cas de litige non résolu directement avec LPM, le consommateur peut recourir
+                gratuitement au médiateur de la consommation suivant :
+              </p>
+              <div className="flex flex-col gap-1.5 pl-4 border-l border-[#D4AF37]/20">
+                <p>
+                  <strong className="text-[#F5F0E8]/90 font-medium">{MEDIATEUR.nom}</strong>
+                </p>
+                <p>{MEDIATEUR.adresse}</p>
+                <p>
+                  <a
+                    href={MEDIATEUR.site}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={linkClass}
+                  >
+                    {MEDIATEUR.site.replace(/^https?:\/\//, "")}
+                  </a>
+                </p>
+              </div>
+              <p>
+                Le consommateur doit au préalable avoir adressé une réclamation écrite à LPM.
+              </p>
+            </div>
+          ),
+        },
+      ]
+    : []),
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
