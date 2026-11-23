@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { sendGAEvent } from "@next/third-parties/google";
+import { openCookieSettings } from "@/components/CookieConsent";
 
 const footerLinks: Record<string, { label: string; href: string }[]> = {
   Services: [
@@ -115,6 +116,15 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <button
+                  type="button"
+                  onClick={openCookieSettings}
+                  className="text-[#8A8A8A] text-xs font-light hover:text-[#C9A84C] transition-colors duration-300"
+                >
+                  Gestion des cookies
+                </button>
+              </li>
             </ul>
           </div>
         </div>
@@ -171,6 +181,14 @@ export default function Footer() {
                 {label}
               </Link>
             ))}
+            <button
+              type="button"
+              onClick={openCookieSettings}
+              className="text-[#8A8A8A]/40 text-[10px] tracking-[0.15em] font-light
+                         hover:text-[#C9A84C] transition-colors duration-300"
+            >
+              Gestion des cookies
+            </button>
           </div>
         </div>
       </div>
