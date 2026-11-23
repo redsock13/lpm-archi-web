@@ -104,11 +104,27 @@ const sections = [
     number: "06",
     title: "Cookies",
     content: (
-      <p>
-        Nous utilisons des cookies pour améliorer l&apos;accès à notre site et identifier les
-        visiteurs réguliers via Google Analytics (SEO). Cette utilisation des cookies n&apos;est
-        en aucune façon liée à des informations personnelles identifiables sur notre site.
-      </p>
+      <>
+        <p className="mb-4">
+          Avec votre accord, nous utilisons <strong className="text-[#F5F0E8]/90 font-medium">Google
+          Analytics</strong> (service fourni par Google Ireland Ltd / Google LLC) pour mesurer la
+          fréquentation du site et améliorer son contenu. Ces cookies (<code>_ga</code>,{" "}
+          <code>_ga_*</code>) ne sont déposés qu&apos;après avoir cliqué sur «&nbsp;Tout
+          accepter&nbsp;» dans le bandeau affiché lors de votre première visite. Leur durée de
+          vie est limitée à 13 mois. Les données collectées peuvent être transférées aux
+          États-Unis, dans le cadre du Data Privacy Framework UE–États-Unis.
+        </p>
+        <p className="mb-4">
+          Un cookie technique (<code>lpm_consent</code>) mémorise votre choix pendant 6 mois,
+          afin de ne pas vous redemander votre accord à chaque visite. Il est strictement
+          nécessaire et ne sert à aucun suivi.
+        </p>
+        <p>
+          Si vous refusez, aucun cookie de mesure d&apos;audience n&apos;est déposé et le site
+          reste entièrement accessible. Vous pouvez modifier votre choix à tout moment via le
+          lien «&nbsp;Gestion des cookies&nbsp;» en bas de chaque page.
+        </p>
+      </>
     ),
   },
 ];
@@ -160,7 +176,11 @@ export default function PolitiqueDeConfidentialite() {
       {/* ── Sections ─────────────────────────────────────────────────── */}
       <div className="max-w-4xl mx-auto px-6 md:px-16 py-20 flex flex-col divide-y divide-[#1c1c1c]">
         {sections.map(({ number, title, content }) => (
-          <div key={number} className="py-12 grid md:grid-cols-[160px_1fr] gap-8 md:gap-16">
+          <div
+            key={number}
+            id={title === "Cookies" ? "cookies" : undefined}
+            className="py-12 grid md:grid-cols-[160px_1fr] gap-8 md:gap-16 scroll-mt-24"
+          >
             {/* Number + title */}
             <div className="flex md:flex-col gap-4 md:gap-3">
               <span
